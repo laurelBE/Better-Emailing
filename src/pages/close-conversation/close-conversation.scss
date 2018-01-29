@@ -1,0 +1,29 @@
+page-close-conversation {
+
+
+  .sample-modal-page {
+   
+  font-size: 2px !important;
+        position: absolute;
+    overflow: hidden;
+    max-width: 300px;
+    border-radius: 5px;
+    width: 100%;
+    height: 50%;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 0;
+    box-shadow: 0 16px 20px rgba(0,0,0,.4);
+    background-color: #c3c3c3;
+     
+    }
+
+    .scroll-content {
+        overflow-y: hidden;
+    }
+
+
+}

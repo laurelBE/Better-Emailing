@@ -1,0 +1,249 @@
+<!--
+  Generated template for the MaildetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-header>
+
+    <ion-toolbar [color]="toolbar">
+
+
+
+    <ion-buttons left>
+
+          <button ion-button icon-only (click)="cancel()">
+
+             <ion-icon name="arrow-back"></ion-icon>
+
+          </button>
+
+      </ion-buttons>
+
+      <ion-label style="font-size:17px;  margin-left:130px; color:#ffffff;">{{openCount}}/{{totalCount}}</ion-label>
+		
+    </ion-toolbar>
+<ion-item   [ngStyle]="{'width': '100%', 'background-color':subjectColor1,'padding-left':'15px'}" style="color:#ffffff" *ngIf="closestatus=='0'" id="subjectId" ion-fixed  text-wrap>Closed</ion-item>
+ 
+  <ion-item   [ngStyle]="{'width': '100%', 'background-color':subjectColor,'padding-left':'15px'}"  id="subjectId" ion-fixed (click)="contentHeight()" text-wrap>{{Subject}}</ion-item>
+ 
+</ion-header>
+
+
+<ion-content color="primary"  >
+  
+<div *ngIf="closestatus=='0'" style="margin-top:100px;"></div>
+    
+    <div  *ngFor=" let item of messageList; let i = index" >
+
+      <div id="topDiv{{i}}" >
+
+      <div  style="color:#50a4e5;font-size:14px;" *ngIf="setCategory(item.CategoryLists) !=''" > 
+      
+        <table style=" width:100%;">
+
+          <tr width="100%">
+
+            <td [ngStyle]="{'width': categoryWidth + '%', 'background-color':'#cdcdcd'}" *ngFor="let number of numbers1">
+            
+              <span   style ="width :100%; text-align:center;  display: block; color:#ffffff; font-size: 14px;background-color:red" *ngIf="category[number].toLowerCase().trim()=='urgent'">
+              Urgent
+            </span>
+            <span   style =" width :100%; text-align:center; display: block; color:#ffffff; font-size: 14px;background-color:green" *ngIf="category[number].toLowerCase().trim()=='action requested'">
+              Action Requested
+            </span>
+            <span  style =" width :100%; text-align:center; display: block; color:#ffffff; font-size: 14px;background-color:#9DB7EB;" *ngIf="category[number].toLowerCase().trim()=='following'">
+              Following
+            </span>
+            <span  style =" width :100%; text-align:center; display: block; color:#ffffff; font-size: 14px;background-color:Purple" *ngIf="category[number].toLowerCase().trim()=='please read'">
+              Please Read
+            </span>
+            <span  style =" width :100%; text-align:center; display: block; color:#000000; font-size: 14px;background-color:Yellow" *ngIf="category[number].toLowerCase().trim()=='important'">
+              Important
+            </span>
+            <span  style =" width :100%; text-align:center; display: block; color:#ffffff; font-size: 14px;background-color:Black" *ngIf="category[number].toLowerCase().trim()=='done'">
+              Done
+            </span>
+            </td>
+
+          </tr>
+
+        </table>
+      
+      </div>
+
+      <div style=" padding-left:15px; padding-top:10px; padding-right:15px;font-size:20px;" align="right">
+
+
+             <ion-icon  style="margin-right:25px; color:#a8d35b;" (click)="respondAction(item,statuses[i])"  name="ios-undo-outline" small></ion-icon>
+
+             <ion-icon  style="margin-right:25px;  color:#a8d35b;" (click)="msgAction(item)"  name="ios-copy-outline" small></ion-icon>
+
+             <ion-icon style="color:#a8d35b;"  name="ios-trash-outline"  (click)="deleteAction(item)" small></ion-icon>
+
+      </div>
+
+     <div  style="padding-left:15px; width:100%; padding-top:10px; ">
+          <span style=" color:#A9A9A9;font-size:14px; " >From :   </span>
+          <span style="color:#50a4e5;font-size:14px;"> {{item.FromField}}<ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][0]==1" >S</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][0]==13 || statuses[i][0]==14" >R</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][0]==15" >W</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][0]==20" >D</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][0]==2" >F</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="quietModeStatuses[i][0]=='on'" >Q</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="addParticipantStatus[i][0]=='1'" >A</ion-badge></span> 
+          <br>
+    </div>
+         <div style=" padding-left:15px; padding-top:10px;" >
+              
+              <div *ngIf="Show_Hide[i]=='Hide'">
+                <span style="color:#A9A9A9;font-size:14px;">To :   </span>
+
+                <span *ngFor=" let number of getToIds(item.ToField) let j=index ">
+                 
+                <span style="padding-left:16px;color:#50a4e5;font-size:14px;" *ngIf="j==0" > {{toIds[number]}}<ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]==1" >S</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]==13 || statuses[i][j+1]==14" >R</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]==15" >W</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]==2" >F</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]==20" >D</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="quietModeStatuses[i][j+1]=='on'" >Q</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="addParticipantStatus[i][j+1]=='1'" >A</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]=='following'" >F</ion-badge></span> 
+                
+              <div style="padding-left:42px;color:#50a4e5;font-size:14px;" *ngIf="j!=0" > {{toIds[number]}}<ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]==1" >S</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]==13 || statuses[i][j+1]==14" >R</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]==15" >W</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]==2" >F</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]==20" >D</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="quietModeStatuses[i][j+1]=='on'" >Q</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="addParticipantStatus[i][j+1]=='1'" >A</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+1]=='following'" >F</ion-badge></div> 
+                </span>
+              </div >
+              <div *ngIf="Show_Hide[i]=='Hide' && item.CCField!=''">
+                <span style="color:#A9A9A9;font-size:14px;">Cc :   </span>
+
+                <span *ngFor=" let number of getCCIds(item.CCField) let j=index ">
+                 
+                <span style="padding-left:16px;color:#50a4e5;font-size:14px;" *ngIf="j==0" > {{CCIds[number]}}<ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]==1" >S</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]==13 || statuses[i][j+numbers3]==14" >R</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]==15" >W</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]==2" >F</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]==20" >D</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="quietModeStatuses[i][j+numbers3]=='on'" >Q</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="addParticipantStatus[i][j+numbers3]=='1'" >A</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]=='following'" >F</ion-badge></span>
+                
+              <div style="padding-left:42px;color:#50a4e5;font-size:14px;" *ngIf="j!=0" > {{CCIds[number]}} <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]==1" >S</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]==13 || statuses[i][j+numbers3]==14" >R</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]==15" >W</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]==2" >F</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]==20" >D</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="quietModeStatuses[i][j+numbers3]=='on'" >Q</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="addParticipantStatus[i][j+numbers3]=='1'" >A</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="statuses[i][j+numbers3]=='following'" >F</ion-badge></div>
+                </span>
+              </div >
+
+      </div>
+
+        <div style=" padding-left:15px; padding-top:10px;" >
+            <span style="font-size:14px;"  *ngIf="Show_Hide[i]=='Show All'" [innerHTML]="item.BodyTeaser" >     </span > 
+        </div>
+            
+
+        <div  id="{{i}}" style="padding-left:15px; padding-top:10px;text-align:left; font-size:16px; color:#a8d35b;"  (click)="DoHere(i,$event);" >
+          
+          {{Show_Hide[i]}}
+        
+        </div>
+
+      <div style="padding-left:15px;" *ngIf="Show_Hide[i]=='Hide'">
+
+      
+             <hr>
+
+            <div style="color:#A9A9A9;font-size:14px;"> <span>{{item.SentOnDate}} {{item.SentOnTime}}</span></div>
+    
+            <hr>
+
+            <label *ngIf="item.AttachmentCount > 0"><label style="color:#A9A9A9;font-size:15px;"> Attachments: </label> <span *ngFor="let attachment of attachmentSplit(item.Attachments) let k=index" style="color:#50a4e5;font-size:12px;"> <span (click)="Viewpopup(AttachmentNames[k])" >{{AttachmentNames[k]}}  </span></span></label>
+            
+            <div *ngIf="item.AttachmentCount > 0"><hr></div>
+
+            <div text-wrap style="font-size:14px;" [innerHTML]="item.Body">
+            </div>
+
+      </div>
+
+      <br>
+          
+      <hr>
+      </div>
+    
+    </div>
+</ion-content>
+
+<ion-footer class="fixed-div">
+  <ion-toolbar class="fixed-div" color="primary">
+
+<!-- 
+    <ion-buttons>
+
+        <button (click)="mailAction()" ion-button icon-only padding-left padding-right>
+
+            <ion-icon name="ios-construct-outline"></ion-icon>
+           
+        </button>
+
+
+        <button (click)="respondAction()" ion-button icon-only padding-left padding-right>
+
+           <ion-icon name="ios-undo-outline"></ion-icon>
+        </button>
+
+
+        <button ion-button icon-only padding-left padding-right  (click)="participationStatus()">
+
+            <ion-icon name="ios-people-outline"></ion-icon>
+        </button>
+
+         <button ion-button icon-only padding-left padding-right (click)="newEvent()">
+
+           <ion-icon name="ios-calendar-outline"></ion-icon>
+        </button>
+
+       
+
+         <button (click)="compose()" ion-button icon-only padding-left>
+
+            <ion-icon name="ios-mail-open-outline"></ion-icon>
+        </button>
+
+    </ion-buttons> -->
+
+    <ion-grid justify-content-center>
+							<ion-row>
+								<ion-col col-6 align-self-center>
+									
+										<ion-buttons >
+										<button ion-button icon-only   (click)="conversationAction(messageList[0])">
+										<ion-icon name="ios-construct-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+									
+								</ion-col>
+								<ion-col col-6 align-self-center>
+									<ion-buttons >
+										<button ion-button icon-only (click)="respondAction(messageList[0],statuses[0])">
+											<ion-icon name="ios-undo-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col >
+								<ion-col col-6 align-self-center>
+									<ion-buttons >
+										<button ion-button icon-only (click)="participationStatus()">
+											 <ion-icon name="ios-people-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col>
+								<ion-col col-6 align-self-center>
+								
+
+									<ion-buttons >
+										<button ion-button icon-only (click)="newEvent()">
+											<ion-icon name="ios-calendar-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col>
+
+								<ion-col col-6 align-self-center>
+								
+									
+
+									<ion-buttons >
+										<button ion-button icon-only (click)="compose()">
+											<ion-icon name="ios-mail-open-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col>
+							</ion-row>
+						</ion-grid> 
+
+  </ion-toolbar>
+
+</ion-footer>
+ 

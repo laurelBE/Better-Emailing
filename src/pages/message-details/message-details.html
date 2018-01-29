@@ -1,0 +1,138 @@
+<!--
+  Generated template for the MessageDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+    <ion-toolbar [color]="toolbar">
+
+
+
+    <ion-buttons left>
+
+          <button ion-button icon-only (click)="cancel()">
+
+             <ion-icon name="arrow-back"></ion-icon>
+
+          </button>
+
+      </ion-buttons>
+
+      <ion-label style="font-size:17px; margin-left:120px; color:#ffffff;"><b>Details</b></ion-label>
+		
+
+
+
+    </ion-toolbar>
+
+
+</ion-header>
+
+
+<ion-content>
+
+     <ion-list>
+
+       <div  style="background:#d2ddb3;" padding-left padding-top padding-bottom>Better Emailing Ionic Development</div>
+       
+       <table width="100%" border="1" bordercolor="#A9A9A9">
+         <tr >
+           <td width= "33%" align="center" style="background:red; color:white">Urgent</td>
+           <td width= "33%" align="center" style="background:yellow;">Important</td>
+           <td  width= "34%" align="center" style="background:#50a4e5; color:white">Following</td>
+         </tr>
+       </table>
+    
+       <ion-item>
+         <div style=" width:100%; ">
+           <span style=" width:15%; color:#A9A9A9;font-size:14px;display:inline-block; white-space: nowrap; text-overflow: ellipsis; overflow:hidden !important; " >From :   </span><span style="width:60%; display:inline-block; white-space: nowrap; text-overflow: ellipsis; overflow:hidden !important; color:#50a4e5;font-size:14px;"> {{From}} </span> <span style=" width:23%;" (click)="ShowAll()" style="color:#50a4e5; cursor:pointer; font-size:14px;padding-left:10px;display:inline-block; white-space: nowrap; text-overflow: ellipsis; overflow:hidden !important; color:#50a4e5;font-size:14px;">{{showAll}}</span>
+           <br>
+     </div>
+      <div >
+     <span style="color:#A9A9A9;font-size:13px;">To :   </span><span style="padding-left:24px;font-size:14px;"> {{To}} </span> <span style="background:#aaaeaf; padding-left:4px;padding-right:4px; padding-top:2px; font-size:12px; border-radius:2px;">F</span>
+     </div>
+    <div id="CcAndBcc" [hidden]="!status">
+     <span style="color:#A9A9A9;font-size:13px;">Cc :    </span > <span style="padding-left:25px;color:#50a4e5;font-size:14px;"> kiran@laureltechnologies.in  </span><span style="background:#aaaeaf; padding-left:4px;padding-right:4px; padding-top:2px; font-size:12px; border-radius:2px;">S</span><br>
+     <span style="color:#50a4e5;padding-left:49px;font-size:14px;"> shweta@laureltechnologies.in </span><span style="background:#aaaeaf; padding-left:4px;padding-right:4px; padding-top:2px; font-size:12px; border-radius:2px;">W</span>
+    <br>
+     <!-- <span style="color:#A9A9A9;font-size:13px;">Bcc :    </span > <span style="color:#50a4e5;padding-left:10px;font-size:14px;"> sourabh@lauretechnologies.in  </span><span style="background:#cfd2d3; padding-left:4px;padding-right:4px; padding-top:2px; font-size:12px; border-radius:2px;">D</span><br>
+     <span style="color:#50a4e5;padding-left:42px;font-size:14px;"> anuradha@lauretechnologies.in  </span><span style="background:#f2e9a4; padding-left:4px;padding-right:4px; padding-top:2px; font-size:12px; border-radius:2px;">Q</span>
+      -->
+    </div>
+      </ion-item>
+
+      <ion-item >
+            <h6 style="color:#A9A9A9;"> {{Date1}}</h6>
+      </ion-item>
+
+      <ion-item no-lines>
+      <p text-wrap>{{Message}}</p>
+      </ion-item>
+
+      
+
+ </ion-list>
+    <!--<div padding-left padding-right padding-top padding-bottom>
+     <span >Documentation.zip</span><br>
+      <span> Size</span> Type<span></span>
+    </div>-->
+
+</ion-content>
+
+<ion-footer>
+
+    <ion-toolbar color="primary">
+
+          <ion-buttons>
+                    
+
+                     <button  ion-button icon-only style=" padding-left:20px; padding-right:10px;" (click)="convAction()">
+
+                          <ion-icon name="ios-construct-outline"></ion-icon>
+           
+                     </button>
+
+                    
+
+                    <button ion-button icon-only style=" padding-left:10px; padding-right:10px;" (click)="msgAction()">
+
+                     
+                     <ion-icon name="ios-copy-outline"></ion-icon>
+
+                    </button>
+
+
+                    <button ion-button icon-only style=" padding-left:10px; padding-right:10px;" (click)="respondAction()">
+
+                      <ion-icon name="ios-undo-outline"></ion-icon>
+
+                    </button>
+
+                    <button ion-button icon-only style=" padding-left:10px; padding-right:10px;" (click)="participationStatus()">
+
+                     <ion-icon name="ios-people-outline"></ion-icon>
+
+                    </button>
+
+                     <button ion-button icon-only (click)="newEvent()" style=" padding-left:10px; padding-right:10px;">
+
+                     <ion-icon name="ios-calendar-outline"></ion-icon>
+
+                    </button>
+
+                     
+
+                      <button ion-button icon-only (click)="compose()" style=" padding-left:10px; padding-right:15px;">
+
+                      <ion-icon name="ios-mail-open-outline"></ion-icon>
+
+                    </button>
+
+          </ion-buttons>
+    
+    
+        </ion-toolbar>
+
+</ion-footer>
+

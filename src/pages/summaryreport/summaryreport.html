@@ -1,0 +1,76 @@
+<ion-header>
+ <ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      Summary Report
+    </ion-title>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!--   <ion-grid>
+          <ion-row>
+            <ion-col>
+                  Action <br><br>
+                <p *ngFor="let item of messageList">
+                    {{item.title}}</p> 
+            </ion-col>
+
+            <ion-col>
+              Action taken by user <br><br>
+              <p *ngFor="let item of messageList">
+              {{item.user}}</p> 
+            </ion-col>
+
+          
+          
+          </ion-row>
+        </ion-grid> -->
+ <ion-grid>
+    <ion-row align-items-start>
+      <ion-col >
+        Action <br><br><br><br>
+        Sideline
+        <br><br>
+        Following
+        <br><br>
+        Withdraw
+        <br><br>
+        Redirect
+        <br><br>
+        Delegated
+        <br><br>
+        Closed
+        <br><br>
+      
+    </ion-col>
+      
+     <ion-col>
+       Action taken by user
+      <br>  <br><br><p *ngFor="let item of messageList">
+            
+        {{item.Sideline}}
+       <br><br>
+        {{item.Following}}
+       <br><br>
+      {{item.Withdraw}}
+       <br><br>
+        {{item.Redirect}}
+       <br><br>
+      {{item.Delegated}}
+       <br><br>
+        {{item.Closed}}
+      </p> 
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+      <p>
+          <button ion-button style="color:#2f74aa;" block (click)="cancel()">Cancel</button>
+      </p>
+</ion-content>

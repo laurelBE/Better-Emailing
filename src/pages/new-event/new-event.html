@@ -1,0 +1,77 @@
+<!--
+  Generated template for the NewEventPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="cancel1()" color="royal">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>New Event</ion-title>
+    <ion-buttons right>
+     <!--  <button ion-button icon-only (click)="show()" color="royal"> -->
+        <button ion-button icon-only color="royal">
+        <ion-icon name="ios-flash"></ion-icon>
+      </button>
+  <button ion-button icon-only (click)="sent(eventStartTime,eventEndTime,invitiees,location,subject,description)" color="royal">
+        <ion-icon name="paper-plane"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content >
+<ion-item>
+  <ion-label style="color:#A9A9A9;">Start:</ion-label>
+  <ion-datetime [(ngModel)]="eventStartTime"  displayFormat="DDD DD MM YYYY, HH:mm " [min]="minEventStartTime" max="3000-12-31" pickerFormat="DD MMM YYYY HH mm " ></ion-datetime>
+  </ion-item>
+<ion-item>
+   <ion-label style="color:#A9A9A9;">End:</ion-label>
+   <ion-datetime [(ngModel)]="eventEndTime" displayFormat="DDD DD MM YYYY, HH:mm " [min]="eventStartTime" max="3000-12-31" pickerFormat="DD MMM YYYY HH mm " ></ion-datetime>
+   </ion-item>
+  <ion-item>
+   <h2 style="color:#2f74aa;">Recurrence</h2>
+   </ion-item>
+  <ion-item>
+     <label style="color:#2f74aa; vertical-align:top;"><input style="margin-right:10px;"  type="checkbox" id="allDayEvent" name="allDayEvent" value="All Day Event"/>All Day Event</label>
+</ion-item>
+<ion-item (click)="alertpages()">
+  <h2>Alert</h2>
+  </ion-item>
+<ion-item>
+  <ion-label style="color:#A9A9A9;">Invitiees</ion-label>
+  <ion-input [(ngModel)]="invitiees" type="" value=""></ion-input>
+  </ion-item>
+<ion-item>
+  <ion-label style="color:#A9A9A9;">Where</ion-label>
+  <ion-input [(ngModel)]="location" type="" value=""></ion-input>
+  </ion-item>
+<ion-item>
+  <ion-label style="color:#A9A9A9;">Subject</ion-label>
+  <ion-input [(ngModel)]="subject" type="" value=""></ion-input>
+  </ion-item>
+<ion-item>
+<label style="color:#A9A9A9;font-size:14px;">Attachments :</label>
+
+ <div *ngFor="let number of getAttachments() let j=index">
+  <label style="font-size:14px;" text-wrap *ngIf="currentAttachCount > 0"> 
+    {{arrAttach[j]}} 
+    <ion-icon name="ios-close" (click)="DeleteFile(arrAttach[j])"></ion-icon>
+  </label>
+</div>      
+<progress id="progressbar" [class.hide]="progressbarHide" max="100" [value]="progress" ([ngModel])="progress"> </progress>
+<!-- <progress id="progressbar" [class.hide]="progressbarHide" max="100" ([ngModel])="progress"> </progress> --> 
+<div id="progressbarlabel" [class.hide]="progressbarHide">uploading {{ progfirst }} %</div>
+<ion-icon item-end id="attach" name="attach" (click)="CallAttach()" color="greenLight" ></ion-icon>
+
+</ion-item>
+<ion-item>
+<ion-textarea name="description" [(ngModel)]="description" style="height: 600px;" ></ion-textarea>
+</ion-item>
+</ion-content>

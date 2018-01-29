@@ -1,0 +1,123 @@
+<!--
+  Generated template for the ScheduleAlertPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<html>
+  <body class="sample-modal-page" >
+<ion-header >
+
+   <ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only  (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-label style="color:#FFFFFF; padding-left:90px; font-size:17px;">Alert</ion-label>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+
+
+      <div padding-left padding-top padding-bottom style=" font-size:14px;">If you wish to reprioritize this message, click on one of the categories below and the conversation will be moved to the appropriate folder.</div>
+      
+      <div style="margin-left:10px;">
+ 
+        <label style="font-size:14px; color:#A9A9A9;">
+
+
+            <ion-grid >
+                  <ion-row>
+                    <ion-col col-1 style="margin-right:10px;">
+                        <input type="radio" name="schedule" style="margin-right:10px;">
+                    </ion-col>
+                    <ion-col col-10>
+                      Tiny Task
+                  </ion-col>
+                </ion-row>
+            </ion-grid>
+        </label>
+      </div>
+
+      <div style="margin-left:10px;">
+ 
+        <label style="font-size:14px; color:#A9A9A9;">
+
+            <ion-grid >
+                  <ion-row>
+                    <ion-col col-1 style="margin-right:10px;">
+                        <input type="radio" name="schedule" style="margin-right:10px;">
+                    </ion-col>
+                    <ion-col col-10>
+                      Schedule Later
+                  </ion-col>
+                </ion-row>
+            </ion-grid>
+        
+            
+        </label>
+      </div>
+
+      <div style="margin-left:10px;">
+      <label style="font-size:14px; color:#A9A9A9;">
+        
+          <ion-grid >
+              <ion-row>
+                <ion-col col-1 style="margin-right:10px;">
+                    <input type="radio" name="schedule" style="margin-right:10px;">
+                </ion-col>
+                <ion-col col-10>
+                  Inbox
+              </ion-col>
+            </ion-row>
+        </ion-grid>      
+        </label>
+      </div>
+
+      <div style="margin-left:10px;"> 
+ 
+        <label style="font-size:14px; color:#A9A9A9;" text-wrap>
+        <ion-grid >
+          <ion-row>
+            <ion-col col-1 style="margin-right:10px;">
+                <input type="radio" name="schedule" style="margin-right:10px;">
+            </ion-col>
+            <ion-col col-10>
+                Leave where it is - ok if it does not show in high priority folders
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+        
+            
+        </label>
+      </div>
+      <br>
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar>
+    <ion-grid>
+<ion-row>
+    <ion-col>
+      <ion-buttons >
+      <button ion-button (click)="cancel()" style="padding-left: 40px;color:#2f74aa;">Cancel</button>
+      </ion-buttons >
+    </ion-col>
+    <ion-col>
+      <ion-buttons >
+    <button ion-button  style="padding-left: 50px;color:#2f74aa;">OK</button>
+    </ion-buttons>
+    </ion-col>
+  </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+
+  </body>
+</html>

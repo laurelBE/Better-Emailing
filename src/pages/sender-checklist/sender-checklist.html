@@ -1,0 +1,132 @@
+<!--
+  Generated template for the SenderChecklistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar [color]="toolbar">
+   <ion-buttons left>
+     <button ion-button icon-only (click)="closeModal()" color="royal">
+       <ion-icon name="close" ></ion-icon>
+     </button>
+   </ion-buttons>
+   <ion-title text-center ><span style="font-size:17px;">Sender Checklist</span></ion-title>
+   <ion-buttons right>
+    
+     <button ion-button icon-only (click)="sendEmail()" color="royal" >
+       <ion-icon name="paper-plane" ></ion-icon>
+     </button>
+   </ion-buttons>
+ </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <!--<ion-item color="card" style="font-size:14px;" text-wrap>
+          Please choose the conversation you have not read in while and click OK to move it slideline.
+    </ion-item>-->
+
+               <ion-item color="card" *ngFor="let item of UserList; let i = index">
+
+                    <ion-item style="margin-left:5px;" color="card" no-lines no-padding >
+                       <h3 *ngIf="close[i]"><span  style="color:gray; font-size:16px;"><del>{{item.UserEmail}}</del></span>   </h3>
+                      <h3 *ngIf="open[i]"><span  style="color:#22A7F0;  font-size:16px;">{{item.UserEmail}}</span></h3> 
+
+                        <!-- <h3><span >{{item.UserEmail }}</span><ion-badge style="margin-left:10px;" *ngIf="item.Status==1" >S</ion-badge><ion-badge style="margin-left:10px;" *ngIf="item.Status==15" >15</ion-badge><ion-badge style="margin-left:10px;" *ngIf="item.Status==14 ||item.Status==13" >R</ion-badge></h3>
+ -->
+                       <ion-icon  [name]="delete[i]" (click)="interchage(i,item.UserEmail)" style="font-size:22.5px; margin-top:15px;" item-end></ion-icon>
+                     </ion-item>
+
+                     
+                        <div style="color:#A9A9A9;  font-size:12px;word-wrap: break-word;margin-bottom: 5px;" *ngIf="item.Status==14 ||item.Status==13 || item.Status==1 || item.Status==15 || item.Status==20 || item.Status==2">
+                         
+                        <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.Status==1 ">S</ion-badge>
+                        <ion-badge style="margin-left:10px;font-size: 10px;"  *ngIf="item.Status==13 || item.Status==14 ">R</ion-badge>
+                         <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.Status==20" >D</ion-badge> 
+                         <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.Status==15 ">W</ion-badge>
+                         <ion-badge style="margin-left:10px;font-size: 10px;"  *ngIf="item.Status==2 ">F</ion-badge>
+                         <span  style="margin-left:2px;">{{ item.Comment }} </span> <br>
+                          </div>
+                          <div style="color:#A9A9A9;  font-size:12px;word-wrap: break-word;margin-bottom: 5px;" *ngIf="item.addParticipantStatus=='1'">
+                            <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.addParticipantStatus=='1'">A</ion-badge>
+                            <span  style="margin-left:2px;">{{ item.AddParticipantComment }} </span>
+                            </div>
+                            <div style="color:#A9A9A9;  font-size:12px;word-wrap: break-word; "  *ngIf="item.QuietTimeStatus=='on'">
+                              <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.QuietTimeStatus=='on'" >Q</ion-badge>
+                              <span style="margin-left:2px;">{{ item.QuietModeMessage }}</span>
+                              <br> 
+                        </div>
+
+                    
+   
+                      <!-- <p text-wrap style="margin-top:5px; margin-left:5px; color:gray;" *ngIf="item.Status==1">Sideline</p> -->
+                   
+                      <ion-grid style="margin-top:0px;">
+                            <ion-row>
+                                  <ion-col col-sm-4>
+                                      <label style="vertical-align:top;font-size:14px;color:gray;" >
+                                      <input style='margin-right: 5px;' type="checkbox" (click)="setValueUrgent($event,i,item.UserEmail)" id="check1{{i}}"  [disabled]=dis[i] value="Urgent"> Urgent
+                                      </label>
+                                  </ion-col>
+
+                                  <ion-col col-sm-4>
+                                    <label style="vertical-align:top;font-size:14px;color:gray; " >
+                                       <input type="radio" style='margin-right: 5px;' name="category{{i}}" id="radio1{{i}}" (click)="setValueCategory($event,i,item.UserEmail)"  [disabled]=dis[i] value="Action Requested"> Action
+                                    </label>
+                                  </ion-col>
+
+                                  <ion-col col-sm-4>
+                                    <label style="vertical-align:top;font-size:14px;color:gray; " >
+                                      <input type="radio" style='margin-right: 5px;' name="category{{i}}" id="radio2{{i}}" (click)="setValueCategory($event,i,item.UserEmail)" [disabled]=dis[i] value="Please Read"> Read
+                                    </label>
+                                    </ion-col>
+                            
+                            </ion-row>
+
+                             <ion-row style="margin-top:5px;">
+                                  <ion-col col-sm-4>
+                                    <label style="vertical-align:top;font-size:14px;color:gray; " >
+                                      <input type="checkbox" style='margin-right: 5px;' id="check2{{i}}" [disabled]=dis[i] (click)="setValueImportant($event,i,item.UserEmail)" value="Important"> Important
+                                    </label>
+                                    </ion-col>
+
+                                  <ion-col col-sm-4>
+                                    <label style="vertical-align:top;font-size:14px;color:gray; " >
+                                       <input type="radio" style='margin-right: 5px;' name="category{{i}}" id="radio3{{i}}" (click)="setValueCategory($event,i,item.UserEmail)" [checked]='setTo[i]' [disabled]=dis[i] value="To"> To
+                                    </label>
+                                  </ion-col>
+
+                                  <ion-col col-sm-4>
+                                   <label style="vertical-align:top;font-size:14px;color:gray; " >
+                                      <input type="radio" style='margin-right: 5px;' name="category{{i}}" id="radio4{{i}}" (click)="setValueCategory($event,i,item.UserEmail)" [checked]='setCC[i]' [disabled]=dis[i] value="CC"> CC
+                                   </label>
+
+                                    </ion-col>
+  
+                            </ion-row>
+                      </ion-grid>
+               </ion-item>   
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar color="card">
+  <ion-row>
+      <ion-col (click)="closeM()"  style="margin-left:50px;">
+         <ion-label style=" font-size:16px; color:#22A7F0;">Cancel</ion-label>
+      </ion-col>
+
+      
+      <ion-col  style="margin-left:100px;" (click)="sendEmail()">
+        
+            <ion-label  style="font-size:16px; color:#22A7F0;">Send</ion-label>
+
+       
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,22 @@
+[
+    {
+        "Name" : "viraj_sarnaik@yahoo.com",
+        "pStatus" : "F",
+        "Status" : "Following",
+        "Comment" : "I am interested."
+    },
+
+    {
+        "Name" : "kiran@laureltechnologies.in",
+        "pStatus" : "S",
+        "Status" : "Sideline",
+        "Comment" : "Shweta is handling the project."
+    },
+
+    {
+        "Name" : "shweta@laureltechnologies.in",
+        "pStatus" : "W",
+        "Status" : "Withdrawn",
+        "Comment" : ""
+    }
+]

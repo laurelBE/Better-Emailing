@@ -1,0 +1,80 @@
+<!--
+  Generated template for the StartQuietTimePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar [color]="toolbar">    
+    <ion-buttons left>      
+      <button ion-button icon-only (click)="cancel()" color="royal">        
+        <ion-icon name="close" ></ion-icon>      
+      </button>    
+    </ion-buttons>    
+    <ion-title text-center>Start Quiet Time</ion-title>    
+    <ion-buttons right>     
+       <button ion-button icon-only color="royal">          
+         </button>  <button ion-button icon-only color="royal">        
+           <ion-icon name="download"></ion-icon>     
+          </button>    
+        </ion-buttons>  
+      </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+<ion-item>
+  <h2>Duration (in minutes):</h2><br>
+  <label style="vertical-align:top; margin-right: 5px;" >
+<input type="radio" style="margin-right: 5px;" name="duration" checked="true" value="30" id="radio1" (click)="setduration($event)"/>  
+30 min</label> 
+<label style="vertical-align:top; margin-right: 5px;" >
+<input type="radio" style="margin-right: 5px;" name="duration" value="60" id="radio1" (click)="setduration($event)"/>  
+60 min</label> 
+<label style="vertical-align:top;margin-right: 5px;" >
+<input type="radio" style="margin-right: 5px;" name="duration" value="90" id="radio1" (click)="setduration($event)"/>  
+90 min</label> 
+<label style="vertical-align:top;" >
+<input type="radio" style="margin-right: 5px;" name="duration" value="120" id="radio1" (click)="setduration($event)"/>  
+120 min</label> 
+</ion-item>
+<ion-item>
+  <h2 id="onlyw">Send me the following types of message<br>during this quiet period.</h2><br>
+    
+   <label style="padding-left: 60px; vertical-align:top;">
+     <input type="checkbox" name="chkbx" style="margin-right:10px;" id="urgent" value="Urgent Messages" (click)="setUrgent($event)">Urgent Messages</label><br><br>    
+    <label style="padding-left: 60px; vertical-align:top;">  
+     <input type="checkbox" name="chkbx" style="margin-right:10px;" id="following" value="Conversation I am Following" (click)="setFollowing($event)">Conversation I am Following</label><br><br> 
+    <label style="padding-left: 60px; vertical-align:top;"> 
+     <input type="checkbox" name="chkbx" style="margin-right:10px;" id="outside" value="Outside Messages" (click)="setOutside($event)">Outside Messages</label><br><br>   
+  </ion-item>
+
+  <ion-item> 
+    <label style="vertical-align:top;"><input type="checkbox" name="chkbx" style="margin-right:10px;" value="Remember My Choices">Remember My Choices</label>   
+  </ion-item>
+  <ion-buttons >
+        <button ion-button (click)="setschedulemode()" style="width:100%;color:#2f74aa;">Schedule Quiet Mode</button>    
+    </ion-buttons>   
+</ion-content>
+
+  
+<ion-footer>    
+  <ion-toolbar>    
+    <ion-grid>
+<ion-row>    
+  <ion-col>      
+    <ion-buttons >      
+      <button ion-button (click)="cancel()" style="padding-left: 50px;color:#2f74aa;">Cancel</button>      
+    </ion-buttons >    
+  </ion-col>    
+  <ion-col>      
+    <ion-buttons >
+        <button ion-button (click)="setmode()" style="padding-left: 50px;color:#2f74aa;">OK</button>    
+    </ion-buttons>    
+  </ion-col>  
+</ion-row>    
+</ion-grid>  
+</ion-toolbar>
+</ion-footer>

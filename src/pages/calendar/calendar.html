@@ -1,0 +1,486 @@
+<ion-header>
+
+<ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+     
+    </ion-buttons>
+
+   <ion-datetime style="color:white;font-size:16px;text-align:center;" displayFormat="MM/DD/YYYY" (ionChange)=showAlert(today1) max="3000-12-31" [(ngModel)]="today1"></ion-datetime>
+
+     
+<!--  		<ion-row>
+      <ion-col col-6>
+        <ion-item>
+          <ion-datetime style="font-size: 12px;" displayFormat="YYYY" (ionChange)=showAlert(today1) [(ngModel)]="today1"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item>
+          <ion-datetime style="font-size: 12px;" displayFormat="MMMM" (ionChange)=showAlert(today1) [(ngModel)]="today1"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row> -->
+
+    <ion-buttons end>
+      <button ion-button icon-only  (click)="newevent()">
+        <ion-icon name="md-add" ></ion-icon>
+      </button>
+    </ion-buttons>
+ 
+  </ion-toolbar>
+<table width="100%" style=" top: 55px;text-align:center;background-color:#d2ddb3;">
+    <tr style="padding-top:10px;">
+      <td rowspan="2" style="background-color:#d2ddb3;"  (click)="PreviousDate()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </td>
+
+      <td  [ngStyle]="{'background-color':selectedcolor[0],'padding-top':'5px','padding-bottom':'5px'}" (click)="changeBackColor(1);">
+        {{this.modfiedDayNames[DayName1]}}
+      </td>
+     <td [ngStyle]="{'background-color':selectedcolor[1]}" (click)="changeBackColor(2)">
+        {{this.modfiedDayNames[DayName2]}}
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[2]}" (click)="changeBackColor(3)">
+        {{this.modfiedDayNames[DayName3]}}
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[3]}" (click)="changeBackColor(4)">
+        {{this.modfiedDayNames[DayName4]}}
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[4]}" (click)="changeBackColor(5)">
+       {{this.modfiedDayNames[DayName5]}}
+      </td>
+      <td  [ngStyle]="{'background-color':selectedcolor[5]}" (click)="changeBackColor(6)">
+        {{this.modfiedDayNames[DayName6]}}
+      </td>
+      <td  [ngStyle]="{'background-color':selectedcolor[6]}" (click)="changeBackColor(7)">
+        {{this.modfiedDayNames[DayName7]}}
+      </td>
+      <td rowspan="2">
+        <ion-icon name="ios-arrow-forward" (click)="NextDate()"></ion-icon>
+      </td>
+    </tr>
+    <tr style="padding-top:15px;padding-bottom:5px;padding-left:20px;">
+      <td [ngStyle]="{'background-color':selectedcolor[0],'width':'12%', 'padding-top':'5px','padding-bottom':'5px','border-bottom' : '#ff0000'}" (click)="changeBackColor(1)">
+       <!--  <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay1"></ion-input> -->
+       <div >{{datedisplay1}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[1],'width':'12%'}" (click)="changeBackColor(2)">
+        <!-- <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay2"></ion-input> -->
+        <div  >{{datedisplay2}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[2],'width':'11%'}" (click)="changeBackColor(3)">
+        <!-- <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay3"></ion-input> -->
+        <div >{{datedisplay3}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[3],'width':'12%'}" (click)="changeBackColor(4)">
+       <!--  <ion-datetime displayFormat="DD" id="datev" (ionChange)=showAlert(todaydate) style="width:50px;"[(ngModel)]="todaydate"></ion-datetime> -->
+      <!--  <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay4"></ion-input> -->
+      <div  >{{datedisplay4}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[4],'width':'12%'}" (click)="changeBackColor(5)">
+        <div >{{datedisplay5}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[5],'width':'12%'}" (click)="changeBackColor(6)">
+       <!--  <ion-datetime displayFormat="DD" id="datev" (ionChange)=showAlert(todaydate) style="width:50px;"[(ngModel)]="todaydate"></ion-datetime> -->
+      <!--  <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay4"></ion-input> -->
+      <div  >{{datedisplay6}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[6],'width':'12%'}" (click)="changeBackColor(7)">
+        <div >{{datedisplay7}}</div>
+      </td>
+      <!-- <td>
+      <ion-input type="tel" style="width:30px;" [(ngModel)]="datedisplay5"></ion-input>
+      </td>
+      <td>
+        13
+      </td> -->
+    </tr>
+  </table>
+
+
+</ion-header>
+
+
+<ion-content >
+  
+  <table width="100%" >
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        1
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        2
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        3
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        4
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        5
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        6
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        7
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+    <tr  id="eighthEle">
+
+      <td  width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        8
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        9
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+        <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        10
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+     <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        11
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      
+        <table height="100%" >
+        <tr>
+           
+        </tr>
+         <tr height="50%">
+        </tr> 
+      </table>
+      
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        12
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+    
+
+   <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        13
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        14
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        15
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        16
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        17
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        18
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        19
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        20
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+
+     <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        21
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        22
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        23
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+     <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        24
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        1
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+    
+  </table>
+
+   <div *ngFor="let item of finalEventList, let i=index" >
+     <div  [ngStyle]="{'position':'absolute', 'height' : heightOfDiv[i], 'top':topInPx[i],'left':'55px','color':'#ffffff', 'width' : '100%', 'font-size':'12px','padding':'2px','background-color':'#5883ef', 'border':'1px', 'border-radius':'2px'}">
+       <span style="font-size:18px; padding-right:5px; ">{{item.Summary}} </span> 
+      </div>
+   </div>
+
+
+</ion-content>
+
+<ion-footer >
+		
+			<ion-toolbar style="text-align:center;" color="primary">
+			
+<!-- 					<ion-buttons >
+						<button ion-button icon-only style=" padding-left:25px; padding-right:15px;" (click)="folderlist()">
+							<ion-icon name="ios-folder-open-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only style=" padding-left:20px; padding-right:15px;" (click)="searchPage()">
+							<ion-icon name="ios-search-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only style=" padding-left:20px; padding-right:15px;"  >
+							<ion-icon name="ios-calculator-outline"></ion-icon>
+						</button>
+						<button ion-button icon-only style=" padding-left:20px; padding-right:15px;" (click)="newevent()"  >
+							<ion-icon name="ios-calendar-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only  style=" padding-left:20px; padding-right:1px;" (click)="compose()">
+							  <ion-icon name="ios-mail-open-outline"></ion-icon>
+						</button>
+						
+        </ion-buttons> -->
+          
+        <ion-grid >
+							<ion-row align-items-center>
+								<ion-col col-6 align-self-center >
+									
+										<ion-buttons >
+										<button ion-button icon-only   (click)="folderlist()">
+											<ion-icon name="ios-folder-open-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+									
+								</ion-col>
+								<ion-col col-6  align-self-center>
+									<ion-buttons >
+										<button ion-button icon-only (click)="searchPage()">
+											<ion-icon name="ios-search-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col >
+								<ion-col col-6 align-self-center>
+									<ion-buttons >
+										<button ion-button icon-only (click)="cancel()">
+											<ion-icon name="ios-calculator-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col>
+								<ion-col col-6 align-self-center>
+								
+
+									<ion-buttons >
+										<button ion-button icon-only (click)="newevent()">
+												<ion-icon name="ios-calendar-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col>
+								<ion-col col-6 align-self-center>
+								
+									
+
+									<ion-buttons >
+										<button ion-button icon-only (click)="compose()">
+									
+											<ion-icon name="ios-mail-open-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col>
+							</ion-row>
+						</ion-grid> 
+			</ion-toolbar>
+		
+		</ion-footer>

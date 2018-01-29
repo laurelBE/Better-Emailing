@@ -1,0 +1,30 @@
+page-redirect {
+
+  input[type='checkbox'] {
+
+  width:18px;
+  height:18px;
+  border:1px solid darkgray;
+  outline:none;
+  }
+
+  input[type='checkbox']:checked:before {
+    background:#a8d35b;
+  } 
+
+
+    ::-webkit-input-placeholder {
+      font-style: italic;
+    }
+    :-moz-placeholder {
+      font-style: italic;  
+    }
+    ::-moz-placeholder {
+      font-style: italic;  
+    }
+    :-ms-input-placeholder {  
+      font-style: italic; 
+    }
+
+
+}

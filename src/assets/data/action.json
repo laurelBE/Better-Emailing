@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Sideline",
+    "user": 4,
+    "company":34
+  },
+  {
+    "title": "Following",
+    "user": 0,
+    "company":0
+  },
+  {
+    "title": "Withdraw",
+    "user": 1,
+    "company":20
+  },
+  {
+    "title": "Redirect",
+    "user": 2,
+    "company":12
+  },
+  {
+    "title": "Delegated",
+    "user": 5,
+    "company":41
+  },
+  {
+    "title": "Closed",
+    "user": 12,
+    "company":75
+  },
+  {
+    "title": "Waiting",
+    "user": 4,
+    "company":34
+  }
+  
+]

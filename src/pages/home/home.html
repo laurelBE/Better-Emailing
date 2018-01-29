@@ -1,0 +1,450 @@
+
+
+
+		<!-- <div [hidden]="hidden" [class]="overlayHidden"> -->
+
+<ion-header >
+
+
+
+	<ion-toolbar [color]="toolbar">
+	
+		<ion-label item-left style="font-size:17px; margin-left:10px; color:#ffffff;">
+			{{myJData.email}}
+		</ion-label>
+		
+		<ion-buttons end>
+		
+		
+		
+			<button (click)="startQuietTime()" ion-button icon-only>
+				<ion-icon name="ios-moon-outline"></ion-icon>
+			</button>
+			
+			<button ion-button icon-only (click)="openTools()">
+				  <ion-icon ios="ios-settings" md="md-settings"></ion-icon>
+			</button>
+			
+			<button ion-button icon-only (click)="openMailList()">
+				  <ion-icon name="filing"></ion-icon>
+			</button>
+			
+			
+		
+		</ion-buttons>
+	
+	</ion-toolbar>
+	
+</ion-header>
+
+
+
+<ion-content overflow-scroll="true"  >
+  
+	<ion-list   no-lines >
+
+		
+						<ion-item color="card" padding-top>
+							<ion-icon ios="ios-arrow-up" md="md-arrow-up" item-start></ion-icon>
+					
+							<div id="highPriority" (click)="OpenHighPriorityList()">High Priority </div>
+
+							<!-- <ion-badge *ngFor="let item of dataList[0]  let item1 of dataList[1] let item2 of dataList[2] let item3 of dataList[3] let item4 of dataList[4]" item-end ><span>{{item.unreadCount+item1.unreadCount+item2.unreadCount+item3.unreadCount+item4.unreadCount}}/{{item.totalCount+item1.totalCount+item2.totalCount+item3.totalCount+item4.totalCount}}</span></ion-badge>
+							 -->
+
+							 <ion-badge  item-end ><span  >{{totalunreadCount}}/{{totalcount1}}</span></ion-badge>
+							   <ion-icon [name]="HighPriority" (click)="onButtonClick()" item-end></ion-icon>
+							
+							  
+							  
+						</ion-item>	  
+							  
+						<ion-item *ngIf="buttonClicked"  margin-left no-lines>	  
+								<ion-item (click)="openConversationList('Urgent','Inbox','megaphone')">
+								  <ion-icon  name="megaphone" item-start></ion-icon>
+										Urgent
+
+										
+										<ion-badge  *ngFor="let item of dataList[0]" item-end ><span  >{{item.unreadCount}}/{{item.totalCount}}</span></ion-badge>
+										
+										
+									</ion-item>
+								
+								<ion-item (click)="openConversationList('Important' ,'Inbox','information-circle')">
+									<ion-icon name="information-circle" item-start></ion-icon>
+								
+										Important
+
+										<ion-badge  *ngFor="let item of dataList[1]" item-end ><span  >{{item.unreadCount}}/{{item.totalCount}}</span></ion-badge>
+										
+								</ion-item>
+								
+								<ion-item  (click)="openConversationList('Action Requested','Inbox','create')">
+								<ion-icon name="create" item-start></ion-icon>
+										Action Requested
+
+										<ion-badge  *ngFor="let item of dataList[2]" item-end ><span  >{{item.unreadCount}}/{{item.totalCount}}</span></ion-badge>
+										
+								</ion-item>
+								
+								<ion-item (click)="openConversationList('Please Read','Inbox','eye')">
+									 <ion-icon name="eye" item-start></ion-icon>
+								
+										Please Read
+										
+										<ion-badge  *ngFor="let item of dataList[3]" item-end ><span  >{{item.unreadCount}}/{{item.totalCount}}</span></ion-badge>
+										
+								</ion-item>
+								
+								<ion-item (click)="openConversationList('Following','Inbox','heart')">
+									  <ion-icon  name="heart" item-start></ion-icon>
+								
+										<span >Following </span>
+
+										<ion-badge  *ngFor="let item of dataList[4]" item-end ><span  >{{item.unreadCount}}/{{item.totalCount}}</span></ion-badge>
+										
+								</ion-item>
+							  
+							 
+							  
+						</ion-item>
+					
+		
+					<ion-item color="card" (click)="openConversationList('Inbox','Inbox','ios-mail')">
+						<ion-icon name="ios-mail" item-start></ion-icon>
+					
+							Inbox
+							
+
+							<ion-badge  *ngFor="let item of dataList[5]" item-end ><span *ngIf="item.category== 2" >{{item.unreadCount}}/{{item.totalCount}}</span></ion-badge>
+										
+							
+					</ion-item>
+					
+					<ion-item id="ToDo" color="card" >
+						  <ion-icon ios="ios-checkbox-outline" md="md-checkbox-outline" item-start></ion-icon>
+					
+							<div (click)="OpenToDoList()">To Do </div>
+
+							<ion-badge  item-end ><span  >{{todounreadCount}}/{{todototalcount}}</span></ion-badge>
+
+							 <ion-icon [name]="Todo" (click)="onTodoClick()"  item-end></ion-icon>
+					</ion-item>
+					
+					
+					
+					<ion-item *ngIf="todo" margin-left no-lines>	  
+								<ion-item  (click)="openConversationList('Tiny Tasks','Tiny Tasks','clipboard')">
+								    <ion-icon name="clipboard" item-start></ion-icon>
+										Tiny Tasks
+										<ion-badge  *ngFor="let item of dataList[6]" item-end ><span  >{{item.unreadCount}}/{{item.totalCount}}</span></ion-badge>
+										
+								</ion-item>
+								
+								<ion-item (click)="openConversationList('Done','Done','done-all')">
+									<ion-icon name="done-all" item-start></ion-icon>
+								
+										Done
+
+										<ion-badge  *ngFor="let item of dataList[7]" item-end ><span >{{item.unreadCount}}/{{item.totalCount}}</span></ion-badge>
+										
+										
+								</ion-item>
+								
+								<!-- <ion-item>
+								  <ion-icon name="information-circle"  item-start></ion-icon>
+										Important
+								</ion-item>
+								
+								<ion-item >
+									 <ion-icon name="megaphone" item-start></ion-icon>
+								
+										Urgent
+										
+										
+								</ion-item >-->
+								
+								<ion-item  (click)="openConversationList('Schedule','Schedule','flag')">
+									    <ion-icon name="flag"  item-start></ion-icon>
+								
+										Schedule
+
+										<ion-badge  *ngFor="let item of dataList[8]" item-end ><span  >{{item.unreadCount}}/{{item.totalCount}}</span></ion-badge>
+										
+								</ion-item>
+							  
+							 
+							  
+						</ion-item>
+					
+					
+					
+					
+					<ion-item id="Delegate" color="card" (click)="onDelegateClick(event)">
+						<!--  (click)="openConversationList('Delegated','Delegated','ios-contact')" -->
+					<ion-icon ios="ios-contact" md="md-contact" item-start></ion-icon>
+					
+							Delegated
+
+							<ion-icon [name]="delegatedIcon"  item-end></ion-icon>
+							
+					</ion-item>
+
+						<ion-item *ngIf="delegate && delegatedDataList.length!=0" margin-left no-lines>	  
+								<ion-item *ngFor="let item of delegatedDataList" (click)="openConversationList(item.FolderName,'delegate','ios-folder-outline')" >
+								    <ion-icon name="ios-contact-outline" item-start></ion-icon>
+										{{item.FolderName}}
+									<ion-badge  item-end ><span  >{{item.unreadCount}}/{{item.totalCount}}</span></ion-badge>
+										
+								</ion-item>	  
+						</ion-item>
+					
+					
+					<ion-item id="LowPriority" (click)="onLowClick()" color="card" >
+					
+					<ion-icon ios="ios-arrow-down" md="md-arrow-down" item-start></ion-icon>
+							Low Priority
+						 <ion-icon [name]="LowPriority"  item-end></ion-icon>
+					</ion-item>
+					
+					
+					<ion-item *ngIf="low"  margin-left no-lines>	  
+								<ion-item (click)="openConversationList('Sideline','Sideline','code-working')">
+								  <ion-icon name="code-working" item-start></ion-icon>
+										Sideline
+
+										<ion-badge  *ngFor="let item of dataList[9]" item-end >
+											<span >{{item.unreadCount}}/{{item.totalCount}}</span>
+										</ion-badge>
+										
+								</ion-item>
+								
+								<ion-item (click)="openConversationList('Withdraw','Withdraw','code-download')">
+									<ion-icon name="code-download" item-start></ion-icon>
+								
+										Withdraw
+
+										<ion-badge  *ngFor="let item of dataList[10]" item-end >
+											<span >{{item.unreadCount}}/{{item.totalCount}}</span>
+										</ion-badge>
+										
+								</ion-item>
+								
+								<ion-item  (click)="openConversationList('Close','Close','close-circle')">
+									<ion-icon name="close-circle" item-start></ion-icon>
+										Close
+
+										<ion-badge  *ngFor="let item of dataList[11]" item-end >
+											<span >{{item.unreadCount}}/{{item.totalCount}}</span>
+										</ion-badge>
+										
+								</ion-item>
+								
+								<ion-item  (click)="openConversationList('Redirect','Redirect','move')">
+									<ion-icon name="move" item-start></ion-icon>
+								
+										Redirect
+										
+										<ion-badge  *ngFor="let item of dataList[12]" item-end >
+											<span  >{{item.unreadCount}}/{{item.totalCount}}</span>
+										</ion-badge>
+										
+										
+								</ion-item>
+
+								<ion-item (click)="openConversationList('Cc','Cc','albums')">
+									<ion-icon name="albums" item-start></ion-icon>
+								
+										Cc
+										
+										<ion-badge *ngFor="let item of dataList[13]" item-end >
+											<span  >{{item.unreadCount}}/{{item.totalCount}}</span>
+										</ion-badge>
+										
+										
+								</ion-item>
+
+							  
+						</ion-item>
+						
+						
+					<ion-item id="StandardFolder" color="card" (click)="onStandardClick(event)">
+					<ion-icon name="folder" item-start></ion-icon>
+					
+							Standard Folder
+
+							<ion-icon [name]="standardIcon"  item-end></ion-icon>
+							
+							
+					</ion-item>
+					
+					
+					<ion-item *ngIf="standard"  margin-left no-lines>	  
+								<ion-item  (click)="openSentMails()">
+								  <ion-icon name="ios-folder-outline" item-start></ion-icon>
+										Sent
+
+										<ion-badge  *ngFor="let item of dataList[14]" item-end 
+										><span >{{item.unreadCount}}/{{item.totalCount}}</span>
+									</ion-badge>
+										
+								</ion-item>
+
+								<ion-item (click)="openDraftMails()">
+									<ion-icon name="ios-folder-outline" item-start></ion-icon>
+										Draft
+
+										<ion-badge  *ngFor="let item of dataList[15]" item-end >
+											<span >{{item.unreadCount}}/{{item.totalCount}}</span>
+										</ion-badge>
+										
+								</ion-item>
+								
+								<ion-item  (click)="openConversationList('Spam','Spam','ios-folder-outline')">
+									<ion-icon name="ios-folder-outline" item-start></ion-icon>
+								
+										Spam
+										
+										<ion-badge  *ngFor="let item of dataList[16]" item-end >
+											<span  >{{item.unreadCount}}/{{item.totalCount}}</span>
+										</ion-badge>
+										
+										
+								</ion-item>
+
+								<ion-item  (click)="openTrashMails()">
+									<ion-icon name="ios-folder-outline" item-start></ion-icon>
+								
+										Trash
+<!-- 										
+										<ion-badge  *ngFor="let item of dataList[17]" item-end >
+											<span  >{{item.unreadCount}}/{{item.totalCount}}</span>
+										</ion-badge> -->
+										
+										
+								</ion-item>
+
+							  
+						</ion-item>
+			
+			
+			
+			
+			
+			</ion-list>
+			
+			
+			
+		
+			
+			
+			
+			
+		
+		
+ 
+  
+</ion-content>
+
+<ion-footer >
+		
+			<ion-toolbar color="primary">
+			
+					
+
+						<ion-grid align-items-center>
+							<ion-row>
+								<ion-col col-5 align-self-center>
+									
+										<ion-buttons >
+										<button ion-button icon-only   (click)="calc()" >
+											<ion-icon name="ios-calculator-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+									
+								</ion-col>
+								<ion-col col-5 align-self-center>
+									<ion-buttons >
+										<button ion-button icon-only (click)="collapse()" >
+											<ion-icon name="ios-arrow-down-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col >
+								<ion-col col-5 align-self-center>
+									<ion-buttons >
+										<button ion-button icon-only (click)="expand()" >
+											<ion-icon name="ios-arrow-up-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col>
+								<ion-col col-5 align-self-center>
+								
+
+									<ion-buttons >
+										<button ion-button icon-only (click)="searchPage()">
+												<ion-icon name="ios-search-outline"></ion-icon>	
+										</button>
+										</ion-buttons>
+								
+								</ion-col>
+								<ion-col col-5 align-self-center>
+								
+									
+
+									<ion-buttons >
+										<button ion-button icon-only (click)="newevent()">
+									
+											<ion-icon name="ios-calendar-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col>
+								<ion-col col-5 align-self-center>
+								
+									
+
+									<ion-buttons >
+										<button ion-button icon-only (click)="compose()">
+											<ion-icon name="ios-mail-open-outline"></ion-icon>
+										</button>
+										</ion-buttons>
+								
+								</ion-col>
+							</ion-row>
+						</ion-grid> 
+
+						<!-- <ion-buttons >
+						<button ion-button icon-only style=" padding-left:15px; padding-right:15px;"  (click)="calc()" >
+							<ion-icon name="ios-calculator-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only style=" padding-left:10px; padding-right:15px;" (click)="expand()" >
+							<ion-icon name="ios-arrow-down-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only style=" padding-left:10px; padding-right:15px;" (click)="collapse()" >
+							<ion-icon name="ios-arrow-up-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only style=" padding-left:10px; padding-right:15px;"  (click)="searchPage()">
+							<ion-icon name="ios-search-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only style=" padding-left:10px; padding-right:15px;" (click)="newevent()"  >
+							<ion-icon name="ios-calendar-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only  style=" padding-left:10px;" (click)="compose()">
+							  <ion-icon name="ios-mail-open-outline"></ion-icon>
+						</button>
+						
+				</ion-buttons> -->
+						
+				
+			</ion-toolbar>
+		
+		</ion-footer>
+
+

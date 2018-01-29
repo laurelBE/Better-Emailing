@@ -1,0 +1,49 @@
+<!--
+  Generated template for the CloseConversationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header >
+
+  <ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only  (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title style="padding-left:25px;">Close Conversation</ion-title>
+  </ion-toolbar>
+</ion-header >
+
+<ion-content style="width:100%;">
+  <div style="margin-top:50px;"></div>
+  <ion-label padding-left padding-top padding-bottom style="background-color:#d2ddb3;width:100%; font-size:14px;">{{this.myJData.subject}}</ion-label>
+      
+      <textarea [(ngModel)]="comment" placeholder="Type your comment (optional)" class="giveMeEllipsis" maxlength="90" style="height: 138px; width:100%; border:1px solid white;font-size:13px;"></textarea>
+</ion-content>
+
+
+<ion-footer flex-wrap: center>
+    <ion-toolbar>
+    <ion-grid align-items: center>
+<ion-row>
+    <ion-col>
+      <ion-buttons >
+      <button ion-button (click)="cancel()" style="color:#2f74aa;">Cancel</button>
+      </ion-buttons >
+    </ion-col>
+    <ion-col>
+      <ion-buttons >
+    <button ion-button  style="color:#2f74aa;" (click)="CloseAction(comment)">OK</button>
+    </ion-buttons>
+    </ion-col>
+  </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+
+  
+

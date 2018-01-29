@@ -1,0 +1,86 @@
+<!--
+  Generated template for the PleaseReadPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  
+    <ion-toolbar [color]="toolbar">
+
+
+
+    <ion-buttons left>
+
+          <button ion-button icon-only (click)="cancel()">
+
+             <ion-icon name="arrow-back"></ion-icon>
+
+          </button>
+
+      </ion-buttons>
+
+
+      <ion-title>Please Read</ion-title>
+
+
+    </ion-toolbar>
+
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+   
+    <ion-item *ngFor="let item of messageList" (click)="getDetails(item)">
+  
+	<ion-icon  item-start name="eye"></ion-icon>
+      <h2>{{ item.SenderEmail }}</h2> 
+   
+      <h3>{{ item.Subject }}</h3>
+      <p>{{ item.body }}</p>
+      
+        <ion-note item-end>{{ item.Time }}</ion-note>
+    </ion-item>
+
+    
+  </ion-list>
+
+  
+</ion-content>
+
+
+<ion-footer >
+		
+			<ion-toolbar color="primary">
+			
+					<ion-buttons >
+						<button ion-button icon-only style=" padding-left:20px; padding-right:10px;" (click)="folderlist()">
+							<ion-icon name="ios-folder-open-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only style=" padding-left:10px; padding-right:15px;" (click)="calc()">
+							<ion-icon name="ios-calculator-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only style=" padding-left:10px; padding-right:15px;" (click)="readRequested()" >
+							<ion-icon name="ios-card-outline"></ion-icon>
+						</button> 
+						
+						<button ion-button icon-only style=" padding-left:10px; padding-right:15px;"  (click)="searchPage()">
+							<ion-icon name="ios-search-outline"></ion-icon>
+						</button>
+						<button ion-button icon-only style=" padding-left:10px; padding-right:15px;" (click)="newevent()"  >
+							<ion-icon name="ios-calendar-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only  style=" padding-left:10px; padding-right:1px;" (click)="compose()">
+							  <ion-icon name="ios-mail-open-outline"></ion-icon>
+						</button>
+						
+				</ion-buttons>
+			</ion-toolbar>
+		
+		</ion-footer>

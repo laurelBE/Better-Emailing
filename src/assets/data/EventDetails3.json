@@ -1,0 +1,23 @@
+[
+    {
+        "EventName" : "Requirement discussion",
+        "StartTime" : "2016-02-10 8:00:00.000",
+        "EndTime" : "2016-02-10 9:30:00.000"
+       
+    },
+
+    {
+        "EventName" : "Test Plan Creation",
+        "StartTime" : "2016-02-10 15:30:00.000",
+        "EndTime" : "2016-02-10 16:00:00.000"
+       
+    },
+
+    {
+        "EventName" : "Product discussion",
+        "StartTime" : "2016-02-10 17:00:00.000",
+        "EndTime" : "2016-02-10 18:00:00.000"
+       
+    }
+
+]

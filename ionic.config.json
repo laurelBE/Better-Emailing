@@ -1,0 +1,8 @@
+{
+  "name": "Kartutva",
+  "app_id": "11315b7e",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

@@ -1,0 +1,66 @@
+<!--
+  Generated template for the ParticipationStatusPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<html>
+  <body class="sample-modal-page">
+<ion-header>
+
+   <ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only >
+        <ion-icon name="ios-people-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-label item-left style="font-size:17px; margin-left:12px; color:#ffffff;"><b>Participation Status</b></ion-label>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+
+  <ion-list>
+
+    <ion-item  *ngFor="let item of UserList; let i = index">
+
+      
+      <div> {{ item.UserEmail}} <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.Status=='sideline'" >S</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.Status=='withdraw'" >W</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.Status=='delegate'" >D</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.Status=='redirect'" >R</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.QuietTimeStatus=='on'" >Q</ion-badge> <ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.Status=='following'" >F</ion-badge><ion-badge style="margin-left:10px;font-size: 10px;" *ngIf="item.addParticipantStatus=='1'" >A</ion-badge></div> 
+        <div style="color:#A9A9A9; font-size:14px; white-space: pre-wrap;      /* CSS3 */
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -pre-wrap;     /* Opera 7 */
+    white-space: -o-pre-wrap;   /* Opera 7 */
+    word-wrap: break-word;"  *ngIf="item.QuietTimeStatus=='on'">{{ item.QuietModeMessage }} </div>
+     <div  style="margin-left:2px;color:#A9A9A9; font-size:14px;white-space: pre-wrap;      /* CSS3 */
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -pre-wrap;     /* Opera 7 */
+    white-space: -o-pre-wrap;   /* Opera 7 */
+    word-wrap: break-word;" *ngIf="item.addParticipantStatus=='1'">{{ item.AddParticipantComment }} </div>
+      <div style="color:#A9A9A9; font-size:14px;white-space: pre-wrap;      /* CSS3 */
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -pre-wrap;     /* Opera 7 */
+    white-space: -o-pre-wrap;   /* Opera 7 */
+    word-wrap: break-word;">{{ item.Comment }}
+    </div>
+
+
+<!--   <ion-badge item-end style="background: #A9A9A9;" >{{ item.pStatus }}</ion-badge>  -->
+      
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+   
+      <ion-buttons left>
+    <button ion-button (click)="cancel()" style="padding-left: 20px;color:#2f74aa;">Close</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+  </body>
+</html>

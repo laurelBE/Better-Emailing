@@ -1,0 +1,88 @@
+<!--
+  Generated template for the SearchResultsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title style="padding-left:40px;">Search Results</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+	<ion-item style="background-color:#d2ddb3;">
+
+  <div  style="font-size:14px; width:100%;"><span>Searched : &nbsp;</span> <span style="background-color:azure;margin-right:5px; padding:2px;">{{item}}</span><!-- <ion-icon name="ios-arrow-down-outline" style="margin-left:100px;"></ion-icon> --></div>
+    </ion-item >
+  <ion-list>
+
+    <ion-item *ngFor="let item of getFolderName(itemString) let i =index" style="background:#e4e4e4;">
+
+      <span  > {{folderArr[item]}} </span>
+
+      <ion-icon [name]="showAll" (click)="DoHere()" item-end></ion-icon>
+
+		</ion-item>
+		
+			
+	
+ <span *ngFor="let item of item1 let i =index"> 
+    <ion-item  (click)="getMessageList1(item.Subject,item.MessageHandle,item.ConversationHandle)">
+				
+				<h2>{{ item.SenderEmail }}</h2> 
+		
+				<h3>{{ item.Subject }}</h3>
+				<p>{{ item.BodyTeaser }}</p>
+				
+	</ion-item>
+		
+		</span>
+
+
+  </ion-list>
+  
+</ion-content>
+
+<ion-footer >
+		
+			<ion-toolbar color="primary">
+			
+					<ion-buttons >
+						<button ion-button icon-only style=" padding-left:20px; padding-right:10px;" >
+							<ion-icon name="ios-calculator-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only  style=" padding-left:10px; padding-right:10px;"  >
+							<ion-icon name="ios-arrow-down-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only style=" padding-left:10px; padding-right:10px;" >
+							<ion-icon name="ios-arrow-up-outline"></ion-icon>
+						</button>
+						
+						
+						<button ion-button icon-only style=" padding-left:10px; padding-right:10px;"  >
+							<ion-icon name="ios-funnel-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only  style=" padding-left:10px; padding-right:10px;" >
+							  <ion-icon name="ios-search-outline"></ion-icon>
+            </button>
+              
+            <button ion-button icon-only  style=" padding-left:10px; padding-right:15px;" (click)="compose()">
+							  <ion-icon name="ios-mail-open-outline"></ion-icon>
+						</button>
+						
+				</ion-buttons>
+			</ion-toolbar>
+		
+		</ion-footer>

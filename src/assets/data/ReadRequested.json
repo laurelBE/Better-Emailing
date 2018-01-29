@@ -1,0 +1,17 @@
+[{
+    "Name":"sneha@laureltechnologies.in",
+    "To" : "viraj_sarnaik@yahoo.com",
+    "Subject":"Better Emailing Ionic Development",
+    "Message":"Hello Sir, Current status is : 1. Done UI design of screens shared by Shree. We will discuss about Mobile development.",
+    "Time" : "1:38 PM",
+    "Date":"Monday, 4 July 2017 1:38 PM"
+},
+{
+    "Name":"viraj_sarnaik@yahoo.com",
+    "To" : "kiran@laureltechnologies.in",
+    "Subject":"Kartutva : Panhala-Pavandhind trip",
+    "Message":"Hi Kiran, Share your experience of the trip.Send trip pictures on your mobile.",
+    "Time" : "10:38 AM",
+    "Date":"Monday, 3 July 2017 10:38 AM"
+}
+]

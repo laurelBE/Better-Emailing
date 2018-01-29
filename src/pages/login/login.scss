@@ -1,0 +1,48 @@
+page-login {
+
+        .scroll-content {
+        overflow-y: hidden;
+    }
+
+.style {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+#grad { 
+    background: -webkit-linear-gradient(#7da82f,#698e25); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#7da82f,#698e25); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#7da82f,#698e25); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#7da82f,#698e25); /* Standard syntax */
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #597526;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #597526;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #597526;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #597526;
+}
+
+.text-input::-moz-placeholder {
+  color: #597526;
+}
+
+.text-input:-ms-input-placeholder {
+  color: #597526;
+}
+
+.text-input::-webkit-input-placeholder {
+  text-indent: 0;
+  color: #597526;
+}
+    
+}

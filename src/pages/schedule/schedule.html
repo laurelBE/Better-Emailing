@@ -1,0 +1,505 @@
+<!--
+  Generated template for the SchedulePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+
+  <ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-label item-left style="font-size:17px; margin-left:100px; color:#ffffff;"><b>Schedule</b></ion-label>
+		
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+  <div padding-left padding-top padding-bottom style="background-color:#d2ddb3; font-size:14px;">Better Emailing Ionic Development</div>
+  
+    
+    <ion-item>
+   <label style="color:#A9A9A9; font-size:15px; vertical-align:top;">Calendar</label> <label style="padding-left:30px;font-size:14px; vertical-align:top;" > Personal </label> <ion-icon name="ios-arrow-forward-outline" color="blue" style="padding-left:50px;"></ion-icon>
+   </ion-item>
+  <ion-item no-lines >
+    <div >
+        <label style="font-size:15px; color:#A9A9A9;vertical-align:top;">
+        <input  style="margin-right: 5px;" type="radio" name="duration" value="30"/>  
+        Block Time</label> 
+        <label style="font-size:15px; color:#A9A9A9; vertical-align:top;" (click)="ScheduleAlertAction()">
+        <input  style="margin-left:25px;margin-right: 5px;" type="radio" name="duration" value="30"/>  
+        Reminder</label> 
+        <label style="font-size:15px; vertical-align:top;">
+        <input  style="margin-left:25px;margin-right: 5px;" type="radio" name="duration" value="30"/>  
+        Both</label>
+      </div>
+  </ion-item>
+
+ 
+
+  <div style="background-color:#d7d7d7; font-size:15px; margin-top:10px; padding-left:20px;padding-top:5px;padding-bottom:5px;">Block This Time</div>
+
+  <div style="padding-left:20px;padding-top:10px;padding-bottom:10px;">
+  <span style="padding-right:15px;color:silver; font-size:15px; vertical-align:top;">Date</span>
+      <!-- <ion-datetime style="width:80%;" displayFormat="DDD DD/MM/YYYY, h:mm A" pickerFormat="DD MMM YYYY h mm A" [(ngModel)]="MettingEndDate"></ion-datetime>
+  --><ion-item>
+      <span style="padding-right:15px;color:silver; font-size:15px;">From</span>
+   <ion-datetime [(ngModel)]="today11"  displayFormat="DDD DD MM YYYY, HH:mm " [min]="mintoday1" max="3000-12-31" pickerFormat="DD MMM YYYY HH mm " ></ion-datetime>
+ </ion-item>
+   <!--  <span style="padding-right:15px;color:silver; font-size:15px;">From</span>
+  <span style="font-size:15px;padding-right:10px; vertical-align:top;">10AM to 11PM </span> -->
+  <ion-item>
+  <span style="padding-right:15px;color:silver; font-size:15px;">To</span>
+   <ion-datetime [(ngModel)]="today2"  displayFormat="DDD DD MM YYYY, HH:mm " [min]="mintoday2" max="3000-12-31" pickerFormat="DD MMM YYYY HH mm " ></ion-datetime>
+  </ion-item>
+  </div>
+
+<!--   <ion-grid >
+          <ion-row>
+            <ion-col >
+                <span style="color:silver; font-size:15px;">Date</span>
+            </ion-col>
+            <ion-col>
+                <ion-datetime style="width:80%;" displayFormat="DD/MM/YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="MettingEndDate"></ion-datetime>
+          </ion-col>
+          <ion-col >
+               <span style="color:silver; font-size:15px;">From</span>
+          </ion-col>
+          <ion-col >
+              <ion-datetime style="width:80%;" displayFormat=" h:mm A" pickerFormat="h mm A" [(ngModel)]="MettingEndDate"></ion-datetime>
+          </ion-col >
+          <ion-col >
+               <ion-icon name="ios-arrow-forward-outline" color="blue" ></ion-icon>
+          </ion-col>
+        </ion-row>
+    </ion-grid> -->
+  
+  <div style="background-color:#d7d7d7; margin-top:10px; font-size:15px; padding-left:20px;padding-top:5px;padding-bottom:5px;">Reminder At</div>
+
+  <div style="padding-left:20px;padding-top:10px;padding-bottom:10px;">
+  <span style="padding-right:15px;color:silver; font-size:15px; vertical-align:top;">Date</span>
+      <!-- <ion-datetime style="width:80%;" displayFormat="DDD DD/MM/YYYY, h:mm A" pickerFormat="DD MMM YYYY h mm A" [(ngModel)]="MettingEndDate"></ion-datetime>
+  --><span style="font-size:15px; padding-right:15px; vertical-align:top;"> 8/08/2017 </span>
+  <span style="padding-right:35px;color:silver; font-size:15px; vertical-align:top;">At</span>
+  <span style="font-size:15px;padding-right:75px; vertical-align:top;"> 4PM </span>
+  <ion-icon name="ios-arrow-forward-outline" color="blue" ></ion-icon>
+  </div>
+  <hr>
+
+<!--    <ion-item>
+    <ion-label style="color:#A9A9A9;font-size:15px;" >Description</ion-label>
+    <ion-textarea type="email" style="border:0px; padding-left: 10px;height:60px;font-size:15px; " placeholder="Enter additional information for this task(optional)"  maxlength="90"  ></ion-textarea>
+
+  </ion-item> -->  
+
+ 
+
+    <div style="color:#A9A9A9;font-size:15px; margin-top:10px; padding-left:20px;padding-top:5px;padding-bottom:5px;" >Description </div>
+       <div style="width:100%;">
+    <span style="width:80%;"><textarea type="email" style="margin-left:10px;width:95%;border:0px; padding-left: 10px;height:60px;font-size:14px; " placeholder="Enter additional information for this task(optional)"  maxlength="90"  ></textarea></span>
+
+  </div> 
+  <hr>
+
+  <div style="text-align:center;padding-top:10px;padding-bottom:10px;color:#A9A9A9;"> Thu 8/10/2017 </div>
+  
+   <table width="100%" style=" top: 55px;text-align:center;background-color:#d2ddb3;">
+    <tr style="padding-top:10px;">
+      <td rowspan="2" style="background-color:#d2ddb3;"  (click)="PreviousDate()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </td>
+
+      <td  [ngStyle]="{'background-color':selectedcolor[0],'padding-top':'5px','padding-bottom':'5px'}" (click)="changeBackColor(1);">
+        {{this.modfiedDayNames[DayName1]}}
+      </td>
+     <td [ngStyle]="{'background-color':selectedcolor[1]}" (click)="changeBackColor(2)">
+        {{this.modfiedDayNames[DayName2]}}
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[2]}" (click)="changeBackColor(3)">
+        {{this.modfiedDayNames[DayName3]}}
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[3]}" (click)="changeBackColor(4)">
+        {{this.modfiedDayNames[DayName4]}}
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[4]}" (click)="changeBackColor(5)">
+       {{this.modfiedDayNames[DayName5]}}
+      </td>
+      <td  [ngStyle]="{'background-color':selectedcolor[5]}" (click)="changeBackColor(6)">
+        {{this.modfiedDayNames[DayName6]}}
+      </td>
+      <td  [ngStyle]="{'background-color':selectedcolor[6]}" (click)="changeBackColor(7)">
+        {{this.modfiedDayNames[DayName7]}}
+      </td>
+      <td rowspan="2">
+        <ion-icon name="ios-arrow-forward" (click)="NextDate()"></ion-icon>
+      </td>
+    </tr>
+    <tr style="padding-top:15px;padding-bottom:5px;padding-left:20px;">
+      <td [ngStyle]="{'background-color':selectedcolor[0],'width':'12%', 'padding-top':'5px','padding-bottom':'5px','border-bottom' : '#ff0000'}" (click)="changeBackColor(1)">
+       <!--  <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay1"></ion-input> -->
+       <div >{{datedisplay1}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[1],'width':'12%'}" (click)="changeBackColor(2)">
+        <!-- <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay2"></ion-input> -->
+        <div  >{{datedisplay2}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[2],'width':'11%'}" (click)="changeBackColor(3)">
+        <!-- <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay3"></ion-input> -->
+        <div >{{datedisplay3}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[3],'width':'12%'}" (click)="changeBackColor(4)">
+       <!--  <ion-datetime displayFormat="DD" id="datev" (ionChange)=showAlert(todaydate) style="width:50px;"[(ngModel)]="todaydate"></ion-datetime> -->
+      <!--  <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay4"></ion-input> -->
+      <div  >{{datedisplay4}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[4],'width':'12%'}" (click)="changeBackColor(5)">
+        <div >{{datedisplay5}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[5],'width':'12%'}" (click)="changeBackColor(6)">
+       <!--  <ion-datetime displayFormat="DD" id="datev" (ionChange)=showAlert(todaydate) style="width:50px;"[(ngModel)]="todaydate"></ion-datetime> -->
+      <!--  <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay4"></ion-input> -->
+      <div  >{{datedisplay6}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[6],'width':'12%'}" (click)="changeBackColor(7)">
+        <div >{{datedisplay7}}</div>
+      </td>
+      <!-- <td>
+      <ion-input type="tel" style="width:30px;" [(ngModel)]="datedisplay5"></ion-input>
+      </td>
+      <td>
+        13
+      </td> -->
+    </tr>
+  </table>
+
+
+
+
+
+
+  
+  <table width="100%" >
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        1
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        2
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        3
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        4
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        5
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        6
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        7
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+    <tr  id="eighthEle">
+
+      <td  width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        8
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        9
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+        <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        10
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+     <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        11
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      
+        <table height="100%" >
+        <tr>
+           
+        </tr>
+         <tr height="50%">
+        </tr> 
+      </table>
+      
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        12
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+    
+
+   <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        13
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        14
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        15
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        16
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        17
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        18
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        19
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        20
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+
+     <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        21
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        22
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        23
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+     <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        24
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        1
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+    
+  </table>
+
+   <div *ngFor="let item of finalEventList, let i=index" >
+     <div  [ngStyle]="{'position':'absolute', 'height' : heightOfDiv[i], 'top':topInPx[i],'left':'55px','color':'#ffffff', 'width' : '100%', 'font-size':'12px','padding':'2px','background-color':'#5883ef', 'border':'1px', 'border-radius':'2px'}">
+       <span style="font-size:18px; padding-right:5px; ">{{item.Summary}} </span> 
+      </div>
+   </div>
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar>
+    <ion-grid>
+<ion-row>
+    <ion-col>
+      <ion-buttons >
+      <button ion-button text-capitalize (click)="cancel()" style="padding-left: 15px; padding-right: 5px;color:#2f74aa;">Cancel</button>
+      </ion-buttons >
+    </ion-col>
+    <ion-col>
+      <ion-buttons >
+    <button ion-button  text-capitalize style="padding-left: 15px; padding-right: 5px;color:#2f74aa;">Go To Date</button>
+    </ion-buttons>
+    </ion-col>
+  <ion-col>
+      <ion-buttons >
+    <button ion-button text-capitalize (click)="addevent(today11,today2)" style="padding-left: 35px; padding-right: 5px; color:#2f74aa;">Ok</button>
+    </ion-buttons>
+    </ion-col>
+  </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

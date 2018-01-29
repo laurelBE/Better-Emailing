@@ -1,0 +1,16 @@
+[
+    {
+        "EventName" : "Walkthrough of project",
+        "StartTime" : "2016-02-10 10:00:00.000",
+        "EndTime" : "2016-02-10 11:30:00.000"
+       
+    },
+
+    {
+        "EventName" : "Discussion about calendar",
+        "StartTime" : "2016-02-10 13:00:00.000",
+        "EndTime" : "2016-02-10 14:00:00.000"
+       
+    }
+
+]

@@ -1,0 +1,106 @@
+<!--
+  Generated template for the ConversationActionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<html>
+  <body class="sample-modal-page">
+
+<ion-header text-wrap-header>
+
+ <ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only >
+        <ion-icon name="ios-construct-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+        <ion-label item-left style="font-size:17px; margin-left:12px; color:#ffffff;"><b>Conversation Actions</b></ion-label>
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content >
+
+		  
+<ion-list text-wrap>
+  <ion-item (click)="followaction()">
+
+    <label style="vertical-align:top;">
+<input type="radio" [checked]="followaction1" name="menu" value="Follow" style="margin-right: 20px; "/>
+Follow
+</label>
+
+    <ion-icon name="ios-flash-outline" (click)="open()" style="float: right; "></ion-icon>
+</ion-item >
+
+  <ion-item > 
+
+    <label style="vertical-align:top;" (click)="sidelineaction()">
+<input type="radio" [checked]="sidelineChecked" name="menu" value="Sideline" style="margin-right: 20px; " (click)="sidelineaction()"/>
+Sideline
+</label>
+<ion-icon name="ios-flash-outline" (click)="opensideline()" style="float: right; "></ion-icon> 
+  </ion-item>
+
+  <ion-item >
+    <label style="vertical-align:top;" (click)="withdrawaction()">
+<input type="radio" (click)="withdrawaction()" [checked]="withdrawChecked" name="menu" value="Withdraw" style="margin-right: 20px; "/>
+Withdraw
+</label>
+<ion-icon name="ios-flash-outline" (click)="openwithdraw()" style="float: right; "></ion-icon>
+  </ion-item>
+
+  <ion-item (click)="delegateaction()">
+    <label style="vertical-align:top;">
+<input type="radio" [checked]="delegateactionchecked" name="menu" value="Delegate" style="margin-right: 20px; "/>
+Delegate
+</label>
+  
+  </ion-item>
+
+  <ion-item (click)="redirectaction()">
+    <label style="vertical-align:top;">
+<input type="radio" name="menu" value="Redirect" style="margin-right: 20px; "/>
+Redirect
+</label>
+      
+    
+    </ion-item>
+
+    <ion-item (click)="addParticipant()">
+      <span style="padding-left: 37px;cursor: pointer;"> Add Participant </span>
+
+    </ion-item>
+
+    <ion-item (click)="suggestAMeetingaction()">
+      <span style="padding-left: 35px; cursor: pointer;"> Suggest a Meeting </span>
+      <ion-icon name="ios-flash-outline" (click)="open()" style="float: right; "></ion-icon>
+    </ion-item>
+
+    <ion-item (click)="closeaction()">
+      <span style="padding-left: 35px; cursor: pointer;">{{ CloseValue }}</span>
+
+    </ion-item>
+    <ion-item no-lines>
+      <span style="padding-left: 35px; cursor: pointer;" (click)="FileConversation()"> File Conversation </span>
+
+    </ion-item>
+
+</ion-list>
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+   
+      <ion-buttons left>
+    <button ion-button (click)="cancel()" style="padding-left: 20px;color:#2f74aa;">Cancel</button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer>
+  </body>
+</html>

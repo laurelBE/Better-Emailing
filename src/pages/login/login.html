@@ -1,0 +1,83 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<html>
+  <body class="scroll-content">
+<ion-content style="background-color: #a8d35b" overflow-scroll=”false”>
+
+
+  <ion-label text-center text-uppercase style="color:#fff; font-size:19px; margin-top:40px;"> Login </ion-label>
+
+  <ion-list style="margin-right:20px;">
+
+    <ion-item no-lines style=" width: 90%;  margin-left:30px; background-color:#a8d35b; margin-top:60px; border:1px solid; border-bottom-color: #006700;border-top-color: #a8d35b;border-left-color: #a8d35b;border-right-color: #a8d35b;">
+
+     <ion-icon item-left ios="ios-contact" md="md-contact" style="color:#fff;" ></ion-icon> 
+
+      <!--  <img item-left src="/assets/icon/person.png" alt="Smiley face" height="27" width="27">-->
+      
+      <ion-input 
+          type="email" 
+          [(ngModel)]="EmailId"  
+          placeholder="Email Address" 
+          [ngStyle]="{'color': EmailTextColor,'font-size':'15px'}"
+          (ionChange)="changeEmailIdColor(EmailId)"
+          ></ion-input>
+
+          <!-- <input 
+          type="email" 
+          [(ngModel)]="EmailId"  
+          placeholder="Email Address" 
+          [ngStyle]="{'color': EmailTextColor,'font-size':'14px','background':'#a8d35b','border':'0px','width':'95%'}"
+          required          
+          (ionChange)="changeEmailIdColor(EmailId)"
+          /> -->
+
+          <!-- pattern="[a-z0-9!#$%&'*+/=?_^`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?_^`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" -->
+
+    </ion-item>
+
+    <ion-item no-lines style=" width: 90%;  margin-left:30px; background-color:#a8d35b; margin-top:40px; border:1px solid; border-bottom-color: #006700;border-top-color: #a8d35b;border-left-color: #a8d35b;border-right-color: #a8d35b;">
+
+      <ion-icon item-left name="ios-key-outline" class="style" style="color:#fff;"></ion-icon>
+      
+      <input type="password" placeholder="Encryption Key"   style="padding-left:7px;width:95%;background:#a8d35b; border:0px #a8d35b; color:#000000;font-size:15px;"/>
+
+    </ion-item>
+
+    <ion-item no-lines style=" width: 90%;  margin-left:30px; background-color:#a8d35b; margin-top:10px; border:2px solid; border-bottom-color: #a8d35b;border-top-color: #a8d35b;border-left-color: #a8d35b;border-right-color: #a8d35b;">
+
+      <ion-label style="padding-left:5px;color:#fff; font-size:15px;">Remember me on this device</ion-label>
+      <ion-checkbox  ></ion-checkbox>
+
+    </ion-item>
+
+
+    <ion-item no-lines style=" width: 90%;  margin-left:100px; background-color:#a8d35b; margin-top:20px; border:2px solid; border-bottom-color: #a8d35b;border-top-color: #a8d35b;border-left-color: #a8d35b;border-right-color: #a8d35b;">
+
+      <button  ion-button id="grad" text-capitalize style=" padding-right:35px; padding-top:20px; padding-bottom:20px;  padding-left:35px; font-size:17px; border:1px solid; border-bottom-color: #006700;border-top-color: #006700;border-left-color: #006700;border-right-color: #006700;" text-only (click)="OpenHome(EmailId)">
+        Login
+      </button>
+
+    </ion-item>
+
+  </ion-list>
+
+  <!-- <div style="margin-top:55px;background-color:#D3D3D3;padding-top:5px; padding-bottom:5px;">
+
+    <ion-label style="color:#008100; font-size:14px; ">Can not connect to server</ion-label>
+  </div> -->
+
+    <div style="background-color:#F1F4C8; margin-top:0px; padding-bottom:70px; width: 100%; height:260px; border:1px solid; border-bottom-color: #a8d35b;border-top-color: #006700;border-left-color: #a8d35b;border-right-color: #a8d35b;">
+
+      <ion-img   style="width:100%; height:100%;"  src="assets/icon/login_footer_icon.png"></ion-img>
+
+    </div>
+
+</ion-content>
+  </body>
+</html>

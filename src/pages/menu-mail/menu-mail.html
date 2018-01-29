@@ -1,0 +1,59 @@
+<!--
+  Generated template for the MenuMailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<html>
+  <body class="sample-modal-page scroll-content" >
+
+<ion-header>
+
+  <ion-toolbar [color]="toolbar">
+    <ion-title>Select Accounts</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+
+<ion-list>
+  <ion-item *ngFor= "let mailname of statuslistarr"  >
+     <label style="vertical-align:top;">
+      <input type="checkbox" name="menu" value="All Accounts" style="margin-right: 8px; "/>
+        {{mailname.Email}}
+    </label> 
+  </ion-item> 
+  <ion-item no-lines>
+    <label style="vertical-align:top;">
+      <input type="checkbox" name="menu" value="All Accounts" style="margin-right: 8px; "/>
+        All
+    </label>
+  </ion-item>
+</ion-list>
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+           <ion-buttons >
+            <button ion-button (click)="cancel()" style="padding-left: 40px;color:#2f74aa;">Cancel</button>
+          </ion-buttons >
+        </ion-col>
+    
+        <ion-col>
+          <ion-buttons >
+            <button ion-button (click)="ok()"  style="padding-left: 50px;color:#2f74aa;">OK</button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+</body>
+</html>

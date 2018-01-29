@@ -1,0 +1,104 @@
+<!--
+  Generated template for the ScheduleQuietTimePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-header>
+
+<ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-label style="padding-left:70px; color:#ffffff; font-size:17px;">Schedule Quiet Time</ion-label>
+ 
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+
+  <ion-list>
+
+
+    <ion-item>
+   <label   style="color:#A9A9A9; font-size:14px;">Recurrence</label> <label [ngStyle]="{'color': TextColor,'font-size':'15px'}" (click)="SelectOne()"> One Time </label> <ion-icon name="ios-arrow-forward-outline" color="blue" style="padding-left:5px;"></ion-icon>
+  <label [ngStyle]="{'color': DailyColor,'font-size':'15px'}" (click)="SelectDaily()" > Daily </label> <ion-icon name="ios-arrow-forward-outline" color="blue" style="padding-left:5px;"></ion-icon>
+  <label [ngStyle]="{'color': WeeklyColor,'font-size':'15px'}" (click)="SetWeekly()"> Weekly </label> <ion-icon name="ios-arrow-forward-outline" color="blue" style="padding-left:5px;"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+     <label style="color:#A9A9A9; font-size:14px; vertical-align:top;"><input style="margin-right:10px;" (click)="allDayAction()" type="checkbox" name="chkbx" value="All"/>All Day Event</label>
+</ion-item>
+
+<ion-item style="width:100%;">
+    <span style="padding-right:40px;color:silver; font-size:14px;">Start:</span>
+     
+    <!-- <ion-datetime style="width:80%;" displayFormat="DDD DD/MM/YYYY, h:mm A" pickerFormat="DD MMM YYYY h mm A" [(ngModel)]="MettingStartDate"></ion-datetime>
+     -->
+   <ion-datetime style="width:80%;" displayFormat="MMM DD, YYYY HH:mm" (ionChange)=showAlert(startDate) [(ngModel)]="startDate" style="width:80%;font-size:14px;"></ion-datetime>
+    </ion-item>
+  <ion-item style="width:100%;">
+    <span style="padding-right:46px;color:silver; font-size:14px;">End:</span>
+      <!-- <ion-datetime style="width:80%;" displayFormat="DDD DD/MM/YYYY, h:mm A" pickerFormat="DD MMM YYYY h mm A" [(ngModel)]="MettingEndDate"></ion-datetime>
+  <span style="width:80%;font-size:14px;">Thu 10/08/2017,  10.30AM</span>
+      -->
+      <ion-datetime displayFormat="MMM DD, YYYY HH:mm" placeholder="End date" (ionChange)=showAlert1(endDate) [(ngModel)]="endDate" style="width:80%;font-size:14px;"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+
+      <label text-wrap style="font-size:14px;">
+        All the following types of messages to be delivered during this quiet time.
+      </label>
+
+      <br><br>
+      <label style="padding-left: 60px;font-size:14px; vertical-align:top;">  
+    <input type="checkbox" [checked]='setUrgent' name="chkbx" style="margin-right:10px;" id="urgent" value="Urgent Messages" (click)="setUrgent($event)">Urgent Messages</label><br><br>    
+    <label style="padding-left: 60px; vertical-align:top;">  
+     <input type="checkbox" [checked]='followingStatus' name="chkbx" style="margin-right:10px;" id="following" value="Conversation I am Following" (click)="setFollowing($event)">Conversation I am Following</label><br><br> 
+    <label style="padding-left: 60px; vertical-align:top;"> 
+     <input type="checkbox" [checked]='outgoingStatus' name="chkbx" style="margin-right:10px;" id="outside" value="Outside Messages" (click)="setOutside($event)">Outside Messages</label><br><br>   
+
+    </ion-item>
+
+    <ion-item>
+
+    <label style="font-size:14px; vertical-align:top;">  
+     <input type="checkbox" name="chkbx" style="margin-right: 12px; " value="">Remember my choices</label>
+
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+    <ion-grid>
+<ion-row>
+    <ion-col>
+      <ion-buttons >
+      <button ion-button text-capitalize (click)="cancel()" style="padding-left: 10px; padding-right: 5px;color:#2f74aa;">Cancel</button>
+      </ion-buttons >
+    </ion-col>
+    <ion-col>
+      <ion-buttons >
+    <button ion-button (click)="quietTimeList()" text-capitalize style="padding-left: 5px; padding-right: 10px;color:#2f74aa;">See list</button>
+    </ion-buttons>
+    </ion-col>
+  <ion-col>
+      <ion-buttons >
+    <button ion-button text-capitalize (click)="scheduleQuietTime()" style="padding-left: 25px; padding-right: 10px; color:#2f74aa;">Add</button>
+    </ion-buttons>
+    </ion-col>
+  </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

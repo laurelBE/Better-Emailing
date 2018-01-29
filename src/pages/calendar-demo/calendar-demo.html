@@ -1,0 +1,269 @@
+<ion-header>
+
+<ion-toolbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+     
+    </ion-buttons>
+
+    <ion-datetime style="color:white;" displayFormat="MM/DD/YYYY" (ionChange)=showAlert(today1) max="3000-12-31" [(ngModel)]="today1"></ion-datetime>
+
+     
+<!-- 		<ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-datetime displayFormat="YYYY" (ionChange)=showAlert(today1) [(ngModel)]="today1"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-datetime displayFormat="MMMM" (ionChange)=showAlert(today1) [(ngModel)]="today1"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row> -->
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="up()">
+        <ion-icon name="ios-arrow-up" ></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="ios-arrow-down" style="margin-right:7px;" ></ion-icon>
+      </button>
+      
+      <button ion-button icon-only (click)="openMailList()">
+        <ion-icon name="md-add" ></ion-icon>
+      </button>
+    </ion-buttons>
+ 
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+
+  <table width="100%" style="text-align:center;background-color:#d2ddb3;padding-top:5px;padding-bottom:5px;">
+    <tr >
+      <td rowspan="2" style="background-color:#d2ddb3;">
+        <ion-icon name="ios-arrow-back" (click)="PreviousDate()"></ion-icon>
+      </td>
+
+      <td  [ngStyle]="{'background-color':selectedcolor[0]}" (click)="changeBackColor(1)">
+        {{this.modfiedDayNames[DayName1]}}
+      </td>
+     <td [ngStyle]="{'background-color':selectedcolor[1]}" (click)="changeBackColor(2)">
+        {{this.modfiedDayNames[DayName2]}}
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[2]}" (click)="changeBackColor(3)">
+        {{this.modfiedDayNames[DayName3]}}
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[3]}" (click)="changeBackColor(4)">
+        {{this.modfiedDayNames[DayName4]}}
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[4]}" (click)="changeBackColor(5)">
+       {{this.modfiedDayNames[DayName5]}}
+      </td>
+      <td  [ngStyle]="{'background-color':selectedcolor[5]}" (click)="changeBackColor(6)">
+        {{this.modfiedDayNames[DayName6]}}
+      </td>
+      <td  [ngStyle]="{'background-color':selectedcolor[6]}" (click)="changeBackColor(7)">
+        {{this.modfiedDayNames[DayName7]}}
+      </td>
+      <td rowspan="2">
+        <ion-icon name="ios-arrow-forward" (click)="NextDate()"></ion-icon>
+      </td>
+    </tr>
+    <tr style="padding-top:5px;padding-bottom:5px;padding-left:20px;">
+      <td [ngStyle]="{'background-color':selectedcolor[0],'width':'12%'}" (click)="changeBackColor(1)">
+       <!--  <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay1"></ion-input> -->
+       <div>{{datedisplay1}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[1],'width':'12%'}" (click)="changeBackColor(2)">
+        <!-- <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay2"></ion-input> -->
+        <div  >{{datedisplay2}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[2],'width':'11%'}" (click)="changeBackColor(3)">
+        <!-- <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay3"></ion-input> -->
+        <div >{{datedisplay3}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[3],'width':'12%'}" (click)="changeBackColor(4)">
+       <!--  <ion-datetime displayFormat="DD" id="datev" (ionChange)=showAlert(todaydate) style="width:50px;"[(ngModel)]="todaydate"></ion-datetime> -->
+      <!--  <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay4"></ion-input> -->
+      <div  >{{datedisplay4}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[4],'width':'12%'}" (click)="changeBackColor(5)">
+        <div >{{datedisplay5}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[5],'width':'12%'}" (click)="changeBackColor(6)">
+       <!--  <ion-datetime displayFormat="DD" id="datev" (ionChange)=showAlert(todaydate) style="width:50px;"[(ngModel)]="todaydate"></ion-datetime> -->
+      <!--  <ion-input type="tel" style="width:60px;" [(ngModel)]="datedisplay4"></ion-input> -->
+      <div  >{{datedisplay6}}</div>
+      </td>
+      <td [ngStyle]="{'background-color':selectedcolor[6],'width':'12%'}" (click)="changeBackColor(7)">
+        <div >{{datedisplay7}}</div>
+      </td>
+      <!-- <td>
+      <ion-input type="tel" style="width:30px;" [(ngModel)]="datedisplay5"></ion-input>
+      </td>
+      <td>
+        13
+      </td> -->
+    </tr>
+  </table>
+
+
+  <table width="100%" >
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        8a
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        9a
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+        <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        10a
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+     <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        11a
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      
+        <table height="100%" >
+        <tr  style="height:50%;color:#ffffff; font-size:12px;padding:2px;background-color:#5883ef; border:1px; border-radius:2px;">
+            <span style="padding-right:5px;">&nbsp;&nbsp;Resource allocation for Better Emailing </span><!-- <span style="padding-left:3px;font-size:11px;">Agenda of Meeting: Resource allocation,Next Project Plan and AOB</span> -->
+        </tr>
+         <tr height="50%">
+        </tr> 
+      </table>
+      
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        12p
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+    
+
+   <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        1p
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        2p
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        3p
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        4p
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+
+    <tr >
+
+      <td width="15%" style="height:50px; text-align:right;vertical-align:bottom;">
+        5p
+      </td>
+
+      <td width="85%" style="height:50px;border:1px solid; border-bottom-color: #D3D3D3;border-top-color: #fff;border-left-color: #D3D3D3;border-right-color: #fff;">
+      </td>
+
+    </tr>
+  </table>
+
+</ion-content>
+
+<ion-footer >
+		
+			<ion-toolbar color="primary">
+			
+					<ion-buttons >
+						<button ion-button icon-only style=" padding-left:25px; padding-right:15px;" (click)="folderlist()">
+							<ion-icon name="ios-folder-open-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only style=" padding-left:20px; padding-right:15px;" (click)="searchPage()">
+							<ion-icon name="ios-search-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only style=" padding-left:20px; padding-right:15px;"  >
+							<ion-icon name="ios-calculator-outline"></ion-icon>
+						</button>
+						<button ion-button icon-only style=" padding-left:20px; padding-right:15px;" (click)="newevent()"  >
+							<ion-icon name="ios-calendar-outline"></ion-icon>
+						</button>
+						
+						<button ion-button icon-only  style=" padding-left:20px; padding-right:1px;" (click)="compose()">
+							  <ion-icon name="ios-mail-open-outline"></ion-icon>
+						</button>
+						
+				</ion-buttons>
+			</ion-toolbar>
+		
+		</ion-footer>

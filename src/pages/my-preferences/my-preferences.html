@@ -1,0 +1,276 @@
+<!--
+  Generated template for the MyPreferencesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-label style="padding-left:80px; color:#ffffff; font-size:17px;">My Preferences</ion-label>
+ 
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+
+  <div style="background-color:#d7d7d7; font-size:15px; padding-left:20px;padding-top:5px;padding-bottom:5px;">Default for Quiet Time</div>
+
+  <ion-item>
+        <label text-wrap style="font-size:14px;" >
+            All the following types of messages to be delivered during this quiet time.
+        </label>
+
+        <br><br>
+        <h2 style="font-size:14px;">Duration (in minutes):</h2><br>
+        <label style="vertical-align:top; margin-right: 5px; font-size:14px;" >
+        <input type="radio" style="margin-right: 5px;" checked={{duration30}} name="duration" value="30" id="radio1" (click)="setduration($event)"/>  
+        30 min</label> 
+        <label style="vertical-align:top; margin-right: 5px; font-size:14px;" >
+        <input type="radio" style="margin-right: 5px;" checked={{duration60}} name="duration" value="60" id="radio1" (click)="setduration($event)"/>  
+        60 min</label> 
+        <label style="vertical-align:top;margin-right: 5px; font-size:14px;" >
+        <input type="radio" style="margin-right: 5px;" checked={{duration90}} name="duration" value="90" id="radio1" (click)="setduration($event)"/>  
+        90 min</label> 
+        <label style="vertical-align:top; font-size:14px;" >
+        <input type="radio" style="margin-right: 5px;" checked={{duration120}} name="duration" value="120" id="radio1" (click)="setduration($event)"/>  
+        120 min</label> 
+  </ion-item>
+
+  <ion-item>
+  <h2 id="onlyw">Send me the following types of message<br>during this quiet period.</h2><br>
+    
+   <label style="padding-left: 60px; vertical-align:top;">
+     <input type="checkbox" name="chkbx" [checked]="urgentch" style="margin-right:10px;" id="urgent" value="Urgent Messages" (click)="setUrgent($event)">Urgent Messages</label><br><br>    
+    <label style="padding-left: 60px; vertical-align:top;">  
+     <input type="checkbox" name="chkbx" [checked]="followch" style="margin-right:10px;" id="following" value="Conversation I am Following" (click)="setFollowing($event)">Conversation I am Following</label><br><br> 
+    <label style="padding-left: 60px; vertical-align:top;"> 
+     <input type="checkbox" name="chkbx" [checked]="outsidech" style="margin-right:10px;" id="outside" value="Outside Messages" (click)="setOutside($event)">Outside Messages</label><br><br>   
+  </ion-item>
+  <div style="background-color:#d7d7d7; font-size:15px; padding-left:20px;padding-top:5px;padding-bottom:5px;">Default Comments</div>
+
+   <ion-item > 
+          <ion-label style="font-size:14px;color:#A9A9A9" >Sideline</ion-label>
+          <ion-input type="text" [(ngModel)]="sideline"></ion-input>
+    </ion-item > 
+    <ion-item > 
+        <ion-label style="font-size:14px;color:#A9A9A9" >Follow</ion-label>
+        <ion-input type="text" [(ngModel)]="follow"></ion-input>
+      </ion-item>
+      <ion-item > 
+          <ion-label style="font-size:14px;color:#A9A9A9" >Withdraw</ion-label>
+          <ion-input type="text" [(ngModel)]="withdraw"></ion-input>
+      </ion-item>
+    <ion-item > 
+        <ion-label style="font-size:14px;color:#A9A9A9" >Close</ion-label>
+        <ion-input type="text" [(ngModel)]="close"></ion-input>
+      </ion-item>
+      <ion-item no-lines> 
+          <ion-label style="font-size:14px;color:#A9A9A9" >Meeting</ion-label>
+          <ion-input type="text" [(ngModel)]="meeting"></ion-input>
+      </ion-item>
+
+  <div style="background-color:#d7d7d7; font-size:15px; padding-left:20px;padding-top:5px;padding-bottom:5px;">Default for Delayed Message Filing function</div>
+
+  <br>
+   <ion-grid style="padding-left:10px;padding-top:5px;padding-bottom:5px;">
+              <ion-row>
+                <ion-col col-3 style="margin-right:10px;">
+                    <input type="checkbox" name="chkbx" value="Urgent" style=" margin-right: 8px; margin-top:2sspx;" [value]="true" [(ngModel)]="day1c"/>
+                </ion-col>
+                <ion-col col-6 style="margin-right:10px;">
+                    <input  min="0" type="number" style="width:50px; color :black; margin-right: 8px; " [(ngModel)]="day1"/>
+              </ion-col>
+              <ion-col col-19 text-wrap>
+                    Days after message has been read from the inbox
+              </ion-col>
+            </ion-row>
+    
+    
+    
+            <ion-row>
+                <ion-col col-3 style="margin-right:10px;">
+                    <input type="checkbox" name="chkbx" value="Urgent" style=" margin-right: 8px; margin-top:2sspx;" [value]="true" [(ngModel)]="day2c"/>
+                </ion-col>
+                <ion-col col-6 style="margin-right:10px;">
+                    <input min="0" type="number" style="width:50px; color :black; margin-right: 8px; "  [(ngModel)]="day2"/>
+              </ion-col>
+              <ion-col col-19 text-wrap>
+                    Days after message has been received but not read
+              </ion-col>
+            </ion-row>
+    
+    
+             <ion-row>
+                <ion-col col-3 style="margin-right:10px;">
+                    <input type="checkbox" name="chkbx" value="Urgent" style=" margin-right: 8px; margin-top:2sspx;" [value]="true" [(ngModel)]="day3c"/>
+                </ion-col>
+                <ion-col col-6 style="margin-right:10px;">
+                    <input  min="0" type="number" style="width:50px; color :black; margin-right: 8px; " [(ngModel)]="day3"/>
+              </ion-col>
+              <ion-col col-19 text-wrap>
+                    Days after message has been moved to low priority folder
+              </ion-col>
+            </ion-row>
+    
+    
+             <ion-row>
+                <ion-col col-3 style="margin-right:10px;">
+                    <input type="checkbox" name="chkbx" value="Urgent" style=" margin-right: 8px; margin-top:2sspx;" [value]="true" [(ngModel)]="day4c"/>
+                </ion-col>
+                <ion-col col-6 style="margin-right:10px;">
+                    <input  min="0" type="number" style="width:50px; color :black; margin-right: 8px; " [(ngModel)]="day4"/>
+              </ion-col>
+              <ion-col col-19 text-wrap>
+                    Days after to-do item has been marked as "Done" or "Closed"
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+    
+        <hr>
+    
+    
+        <ion-grid >
+            <ion-row>
+                <ion-col col-13>
+                    <br><span style="padding-top:50px; color:gray; padding-left:15px;padding-top:5px;padding-bottom:5px;">Filing should run at</span>
+                </ion-col>
+                <ion-col col-10>
+                     <span style="margin-top:100px;"><ion-datetime style="color : black; margin-top:5px; " displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="filing" ></ion-datetime></span>
+                </ion-col>
+                <ion-col col-6>
+                   <span style="color:#2f74aa;"><br> Details </span>
+                     
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    <hr>
+
+
+    
+
+
+    <div style="background-color:#d7d7d7; font-size:15px; padding-left:20px;padding-top:5px;padding-bottom:5px;padding-right:15px;">Send Incoming Messages to this Folder When I am on CC-list</div>
+
+    <br>
+    <ion-grid style="padding-left:15px;padding-top:5px;padding-bottom:5px; ">
+            <ion-row>
+                <ion-col col-12>
+                    <span style="color:gray; vertical-align:top; ">Send by internal contact</span>
+                </ion-col>
+                  <label style="color:gray; margin-top:5px; margin-right:10px; vertical-align:top; ">
+                <ion-col col-3>
+                     <input type="radio" name="internal" style="vertical-align:top; " value="Inbox" [(ngModel)]="intcont">
+                </ion-col>
+                <ion-col col-5>
+                   Inbox 
+                     
+                </ion-col>
+                  </label>
+               <label style="color:gray; margin-top:5px; vertical-align:top; ">
+                <ion-col col-3>
+                     <input type="radio" name="internal" style="vertical-align:top; " value="CC" [(ngModel)]="intcont">
+                </ion-col>
+                <ion-col col-5>
+                   CC 
+                </ion-col>
+                  </label>
+            </ion-row>
+        </ion-grid>
+      <hr>
+
+        <ion-grid style="padding-left:15px;padding-top:5px;padding-bottom:5px; ">
+        <ion-row>
+            <ion-col col-12>
+                <span style="color:gray; vertical-align:top; ">Send by external contact</span>
+            </ion-col>
+              <label style="color:gray; margin-top:5px; margin-right:10px; vertical-align:top; ">
+            <ion-col col-3>
+                 <input type="radio" name="external" style="vertical-align:top;" value="Inbox" [(ngModel)]="extcont" >
+            </ion-col>
+            <ion-col col-5>
+               Inbox 
+                 
+            </ion-col>
+              </label>
+           <label style="color:gray; margin-top:5px; vertical-align:top; ">
+            <ion-col col-3>
+                 <input type="radio" name="external" style="vertical-align:top;" value="CC" [(ngModel)]="extcont">
+            </ion-col>
+            <ion-col col-5>
+               CC 
+            </ion-col>
+              </label>
+        </ion-row>
+    </ion-grid>
+
+    <br>
+
+<div style="background-color:#d7d7d7; font-size:15px; padding-left:20px;padding-top:5px;padding-bottom:5px;padding-right:15px;">Treat Incoming Messages Marked with "!" as</div>
+
+<br>
+
+<ion-grid style="padding-left:10px;padding-top:5px;padding-bottom:5px; ">
+        <ion-row>
+              <label style="color:gray; margin-top:5px; margin-right:10px; vertical-align:top; ">
+            <ion-col col-4>
+                 <input type="radio" name="external" style="vertical-align:top; " >
+            </ion-col>
+            <ion-col col-10>
+               Important 
+                 
+            </ion-col>
+              </label>
+           <label style="color:gray; margin-top:5px; vertical-align:top; ">
+            <ion-col col-4>
+                 <input type="radio" name="external" style="vertical-align:top; " >
+            </ion-col>
+            <ion-col col-10>
+               Urgent 
+            </ion-col>
+              </label>
+        </ion-row>
+    </ion-grid>
+
+    <br>
+
+    <div style="background-color:#d7d7d7; font-size:15px; padding-left:20px;padding-top:5px;padding-bottom:5px;padding-right:15px;">Use this Color Scheme</div>
+
+
+    <ion-item no-lines>
+    <label style="font-size:14px; vertical-align:top;">  
+     <input type="radio" name="chkbx" style="margin-right: 12px; "  value=""><span style="width:18px; height:18px; display:inline-block; border:5px; border-radius:20%; background-color:#a8d35b; margin-right: 12px; "></span>Default</label><br><br>    
+    <label style="font-size:14px; vertical-align:top;">  
+     <input type="radio" name="chkbx" style="margin-right: 12px; " value=""><span style="width:18px; height:18px; display:inline-block; border:5px; border-radius:20%; background-color:blue; margin-right: 12px; "></span>Blue</label><br><br> 
+    <label style="font-size:14px; vertical-align:top;">  
+     <input type="radio" name="chkbx" style="margin-right: 12px; " value=""><span style="width:18px; height:18px; display:inline-block; border:5px; border-radius:20%; background-color:brown; margin-right: 12px; "></span>Brown</label>
+    </ion-item>
+
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+    <ion-grid>
+<ion-row>
+    <ion-col>
+      <ion-buttons >
+      <button ion-button (click)="cancel()" style="padding-left: 40px;color:#2f74aa;">Cancel</button>
+      </ion-buttons >
+    </ion-col>
+    <ion-col>
+      <ion-buttons >
+    <button ion-button  (click)="setPreference(sideline,follow,withdraw,close,meeting,day1,day2,day3,day4,filing,intcont,extcont)" style="padding-left: 50px;color:#2f74aa;">OK</button>
+    </ion-buttons>
+    </ion-col>
+  </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,142 @@
+<!--
+  Generated template for the MessageActionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<html>
+  <body class="sample-modal-page">
+
+<ion-header >
+
+ <ion-toolbar [color]="toolbar">
+    <ion-buttons left>
+      <button ion-button icon-only >
+        <ion-icon name="mail"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Message Actions</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content >
+
+		  
+<ion-list text-wrap>
+  <ion-item>
+    <label style="vertical-align:top;">
+<input type="radio" name="menu" (click)="todoAction($event)" id="radiotiny" value="Tiny Task" style="margin-right: 8px; "/>
+Tiny Task
+</label>
+</ion-item>
+
+  <ion-item (click)="scheduleAction()">
+    <label style="vertical-align:top;">
+    <input type="radio" name="menu" value="Schedule" style="margin-right: 8px; "/>
+    Schedule
+    </label> 
+  </ion-item>
+
+  <ion-item>
+    <label style="vertical-align:top;">
+    <input type="radio" name="menu" value="Schedule Later" style="margin-right: 8px; "/>
+    Schedule Later
+    </label> 
+
+  </ion-item>
+
+  <ion-item>
+        <label style="vertical-align:top;">
+    <input type="radio" name="menu" value="Done" style="margin-right: 8px; " (click)="todoAction($event)" id="radiotiny"/>
+    Done
+    </label>
+    <label style="margin-left: 40px; vertical-align:top;">
+    <input type="radio" name="menu" value="Close" style="margin-right: 8px; " (click)="todoAction($event)" id="radiotiny"/>
+    Close
+    </label>
+    </ion-item>
+
+    <ion-item>
+      <label style="vertical-align:top;" >
+    <input type="checkbox" [checked]='setUrgent' class="evenRow" (click)="urgentAction()" name="chkbx" value="Urgent" style="margin-right: 8px; "/>
+    Urgent
+    </label>
+    <label style="margin-left: 32px;vertical-align:top; " >
+    <input type="checkbox" [checked]='setImportant' name="chkbx" (click)=" importantAction()"  value="Important" style="margin-right: 8px; "/>
+    Important
+    </label>  
+    <!-- <ion-label>Urgent</ion-label>
+    <ion-checkbox></ion-checkbox>
+
+    <ion-label>Urgent</ion-label>
+    <ion-checkbox item-end></ion-checkbox> -->
+    </ion-item>
+
+    <ion-item>
+    <label  style="vertical-align:top;">
+    <input type="radio" name="menu1" value="Today" style="margin-right: 8px; "/>
+    Today
+    </label>
+    <label style="margin-left: 37px; vertical-align:top;">
+    <input type="radio" name="menu1" value="Tomorrow" style="margin-right: 8px; "/>
+    Tomorrow
+    </label>
+        
+    </ion-item>
+
+    <ion-item>
+    <label  style="vertical-align:top;">
+    <input type="radio" name="menu1" value="This Week" style="margin-right: 6px; "/>
+    This Week
+    </label>
+    <label style="margin-left: 9px; vertical-align:top;">
+    <input type="radio" name="menu1" value="Next Week" style="margin-right: 8px; "/>
+    Next Week 
+    </label>
+         
+    </ion-item>
+
+    <ion-item>
+    <label  style="vertical-align:top;">
+    <input type="radio" name="menu1" value="Custom" style="margin-right: 8px; "/>
+    Custom
+    </label>
+    <label style="margin-left: 25px; vertical-align:top;">
+    <input type="radio" name="menu1" value="Overdue" style="margin-right: 8px; "/>
+    Overdue
+    </label>
+        
+    </ion-item>
+
+</ion-list>
+
+<!-- <div class="my-overlay" padding [hidden]="overlayHidden">
+    <button full (click)="hideOverlay()">Click me</button>
+</div> -->
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+    <ion-grid>
+<ion-row>
+    <ion-col>
+      <ion-buttons >
+      <button ion-button (click)="cancel()" style="padding-left: 40px;color:#2f74aa;">Cancel</button>
+      </ion-buttons >
+    </ion-col>
+    <ion-col>
+      <ion-buttons >
+    <button ion-button (click)="SendActions()" style="padding-left: 50px;color:#2f74aa;">OK</button>
+    </ion-buttons>
+    </ion-col>
+  </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+  </body>
+</html>
+
